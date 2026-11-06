@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>ရွှင်လန်းကာချမ်းသာကြစေ by J-Fire</title>
+	<link rel="stylesheet" type="text/css" href="WaterFestival.css">
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+
+	<div class="container">
+			<div class="bar">
+					<a href="Home.html" >
+					<i class="fa-sharp fa-regular fa-circle-left"></i>
+					</a>
+					<a href="Home.html" >
+					<i class="fa-solid fa-house"></i>
+					</a>
+			
+			</div>
+
+		<div class="musicBox">
+			<div class="music-player">
+				<div class="solidBar">
+				
+					<div class="circle" onclick="toggleList()">
+					<i class="fa-solid fa-bars"></i>
+					<i class="fa-solid fa-download"></i>
+					</div>
+				
+					<div class="dropdown-content" id="dropdownList" style="display: none;">
+			             
+			                <ul>
+			                   <li><a href="#"> Favourite</a></li>
+			                    <li><a href="#"> Playlists</a></li>
+			                    <li><a href="#">Download</a></li>
+			                </ul>
+            		</div>	
+					
+				</div>
+					<img src="ရွှင်လန်းကာချမ်းသာကြစေ.jpg" class="song-img">
+				
+					<h1>ရွှင်လန်းကာချမ်းသာကြစေ</h1>
+					<p>J-Fire</p>
+
+					<audio  id="song">
+						<source src="ရွှင်လန်းကာချမ်းသာကြစေ.mp3" type="audio/mp3">
+					</audio>
+						<div class="time-container">
+						<span class="time" >00:00</span>
+						</div>
+							<input type="range" value="0" id="progress">
+						<div class="controls">
+							<div>
+								<i class="fa-solid fa-backward-step"></i>
+							</div>
+							<div onclick="playPause()"><i class="fa-solid fa-play" id="ctrlIcon"></i>
+							</div>
+							<div><i class="fa-solid fa-forward-step"></i>
+							</div>
+						</div>		
+			</div>		
+		</div>
+<script >
+	function toggleList() {
+    var dropdownList = document.getElementById("dropdownList");
+    dropdownList.style.display = (dropdownList.style.display === "none" || dropdownList.style.display === "") ? "block" : "none";
+}
+
+	let progress = document.getElementById("progress");
+	let song = document.getElementById("song");
+	let ctrlIcon = document.getElementById("ctrlIcon");
+	let lyric =document.querySelector(".lyric");
+	let time =document.querySelector(".time");
+	const letter = document.querySelector('.current');
+
+
+	song.onloadedmetadata = function(){
+		progress.max = song.duration;
+		progress.value = song.currentTime;
+	}
+	function playPause(){
+		if(ctrlIcon.classList.contains("fa-pause")){
+			song.pause();
+			ctrlIcon.classList.remove("fa-pause");
+			ctrlIcon.classList.add("fa-play");
+
+		}
+		else{
+			song.play();
+			ctrlIcon.classList.add("fa-pause");
+			ctrlIcon.classList.remove("fa-play");
+		}
+	}
+
+
+	if(song.played){
+		setInterval(()=>{
+			progress.value = song.currentTime;
+			updateCurrentTime();
+		},500);
+	}
+
+	progress.oninput = function() {
+		
+		song.currentTime = 	progress.value;
+		ctrlIcon.classList.add("fa-pause");
+		ctrlIcon.classList.remove("fa-play");
+		updateCurrentTime();
+	}
+function updateCurrentTime() {
+				let minutes = Math.floor(song.currentTime / 60);
+				let seconds = Math.floor(song.currentTime % 60);
+				time.textContent = padTime(minutes) + ":" + padTime(seconds);
+			}
+
+			function padTime(time) {
+				return time < 10 ? "0" + time : time;
+			}
+	
+
+</script>
+<div></div>
+<div class="lyric1">
+	<div class="lyric-container">
+			<p class="current">	
+
+					မှုန်ရီဝိုးတဝါးနဲ့ ရောင်နီနိုးထခဲ့<br>
+					အတာနှစ်ကူးချိန်ပြန်ပြီးနိုးထလာ<br>
+					သင်္ကြန်ဒိုးများနဲ့ ဝသာန်မိုးသားထဲ<br>
+					ရွှေရောင်ပိတောက်ပန်းတွေ<br>
+					 ပွင့်ဖူးခူးဆွတ်အချိန်မှာလေ
+					ရေသဘင်ကြား<br> 
+					တာဝတိံသာ နန္ဒာဝန်က ပဉ္စသိင်္ခထံမှနတ်စောင်းသံ<br>
+					ပျံသန်းတီးခတ်အချိန်အခါဟာ ပျိုဖြူတွေကြား<br>
+					ကိန္နရီ ကိန္နရာဖျော်ဖြေဟန်များ
+					<br> မြိုင်ဆိုင်၊ဝေဆာ၊ညီညာ၊ကကြိုးချွေ<br>
+					နှစ်ဦးတန်ခူးလအချိန်<br><br>
+
+					
+					ရွင်လန်းကာ စိတ်ချမ်းသာကြစေ<br>
+					စိတ်နှလုံးအပြင် ကိုယ်ကျန်းမာကြစေ<br>
+					အရွယ်သုံးသွယ် အနာကင်းကာလှစေ<br>
+					တောင်းဆုတွေ လိုတိုင်းတာပြည့်စေ<br>
+					ဆန်စပါးတွေ ပြည့်ဖြိုးကြွယ်ဝစေ<br>
+					သဒ္ဒါတရားအပြည့် လှူဒါန်းနိုင်ကြစေ<br>
+					ရွှေမိုးတွေ ရွာသွန်းကာကျစေ<br>
+					မောင်မယ်တွေ ချစ်ကြိုးသွယ်ကြစေ
+					...<br>
+					နှောင်းခဲ့တာကြာလှပြီ<br>
+					သင်္ကြန်တလိုစကားသည် မာဂတ<br>
+					သင်္ကန္တ သင်္သကရိုဋ်ကနေ<br>
+					ရွေ့လျှားဆင်းသက်တဲ့ ပြောင်းလည်းချိန်ကာလ<br>
+					ဆိုင်းသံကဗုံနှောင် ဗုံနှောင်နဲ့<br> 
+					စောင်းသံက တူနှောင်တူနှောင် .....<br>
+					စောင်းသံက တူနှောင်တူနှောင် နဲ့ <br>
+					ဆိုင်းသံက ဗုံနောင်ဗုံနောင်<br>
+					ဘိုးဘွားတွေရေကန်တော့ခြင်းတို့၏<br>
+					 အစဉ်အလာတစ်ပါးဟာလည်း မင်္ဂလာများစွာနဲ့....<br>
+					ဥပုတ်စောင့်ကုသိုလ်တရားသည်လည်း<br>
+					 ရင်မှာများစွာနဲ့ ထင်ကျန်သွားမှာပဲ ....<br>
+					ကျန်တဲ့ပန်းတွေ ဝန်ခံသွားပါရဲ့ မွှေးရနံ့မမှီအောင်ကြိုင်နေကာလှ.....<br>
+					လတခူးပေမို့ အလှထူးနေတဲ့ မြဖူးရယ်တဲ့ ခိုင်ရွှေဝါကွ ......<br><br>
+
+					မြန်မာပြည် ရေသဘင်ကြား<br>
+					တာဝတိံသာ နန္ဒာဝန်က<br>
+					ပဉ္စသိင်္ခထံမှနတ်စောင်းသံ<br>
+					ပျံသန်းတီးခတ်အချိန်အခါဟာ ပျိုဖြူတွေကြား<br>
+					ကိန္နရီ ကိန္နရာဖျော်ဖြေဟန်များ<br>
+					မြိုင်ဆိုင် ဝေဆာ ညီညာ ကကြိုးချွေ<br>
+					နှစ်ဦးတန်ခူးလအချိန်..........<br><br>
+
+					
+					ဒို့ ရိုးရာ သင်္ကြန်ကျပြီကွ<br>
+					မဏ္ဍပ်တွေအပြိုင်လှနေ ၊<br>
+					လက်ထဲမှာရေဖလားတွေနဲ့ နှစ်သစ်ကို ကြိုဆိုဖို့လေ ....<br>
+					အတာအိုးတွေထဲ ....သပြေပန်းတွေနဲ့<br>
+					ဒယ်အိုးတွေထဲ .....မုန့်လုံးတွေနဲ့<br>
+					သင်္ကြန်ဒိုးတွေနဲ့ .....ပျော်မြူးနေခဲ့<br>
+					သပြေခက်တွေနဲ့ .....ရေပက်နေခဲ့<br>
+					ရေကစားတယ်ခင်ကြမင်ကြ<br>
+					ယဉ်ကျေးမြင့်မား စိတ်ထားဟာလှတယ်<br>
+					ဒါပြီးရင်နှစ်ဆန်းကာလ<br>
+					မြို့လမ်းရွာမကျန် ပရိတ်တရားနာကြမယ်.....<br>
+					တန်ခူးကာလ မိတ်များစွာရ<br>
+					ရာသီ၁၂ လထဲ အရမ်းပဲလှပါရဲ့<br>
+					အတက်နေ့ရဲ့ နှုတ်ဆက်နေဝင်ချိန်ဟာ<br>
+					ဘာလို့မှန်းမသိ ဝမ်းနည်းရပါတယ် ......<br><br>
+					မြန်မာပြည် ရေသဘင်ကြား<br>
+					တာဝတိံသာ နန္ဒာဝန်က<br>
+					ပဉ္စသိင်္ခထံမှနတ်စောင်းသံ<br>
+					ပျံသန်းတီးခတ်အချိန်အခါဟာ ပျိုဖြူတွေကြား<br>
+					ကိန္နရီ ကိန္နရာဖျော်ဖြေဟန်များ<br>
+					မြိုင်ဆိုင် ဝေဆာ ညီညာ ကကြိုးချွေ<br>
+					နှစ်ဦးတန်ခူးလအချိန်..........<br>
+		</p>
+</div>
+</div>
+</div>
+
+</body>
+</html>

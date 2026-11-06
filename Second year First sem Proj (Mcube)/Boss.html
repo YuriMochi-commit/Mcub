@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Boss by JAY</title>
+	<link rel="stylesheet" type="text/css" href="MusicPlayer.css">
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+
+	<div class="container">
+			<div class="bar">
+			<a href="Home.html" >
+					<i class="fa-sharp fa-regular fa-circle-left"></i>
+					</a>
+					<a href="Home.html" >
+					<i class="fa-solid fa-house"></i>
+					</a>
+			</div>
+		<div class="musicBox">
+			<div class="music-player">
+				<div class="solidBar">
+				
+					<div class="circle" onclick="toggleList()">
+					<i class="fa-solid fa-bars"></i>
+					<i class="fa-solid fa-download"></i>
+					</div>
+				
+					<div class="dropdown-content" id="dropdownList" style="display: none;">
+			             
+			                <ul>
+			                   <li><a href="#"> Favourite</a></li>
+			                    <li><a href="#"> Playlists</a></li>
+			                    <li><a href="#">Download</a></li>
+			                </ul>
+            		</div>	
+				
+					
+				</div>
+					<img src="Boss.jpg" class="song-img">
+				
+					<h1>Boss</h1>
+					<p>JAY</p>
+
+					<audio  id="song">
+						<source src="Boss.mp3" type="audio/mp3">
+					</audio>
+						<div class="time-container">
+						<span class="time" >00:00</span>
+						</div>
+							<input type="range" value="0" id="progress">
+						<div class="controls">
+							<a href="ကမ္ဘာအဆက်ဆက်.html">
+							<div><i class="fa-solid fa-backward-step"></i>
+							</div>
+						</a>
+							<div onclick="playPause()"><i class="fa-solid fa-play" id="ctrlIcon"></i>
+							</div>
+							<a href="နှလုံးသားရဲ့နေရာတိုင်းမှာ.html">
+							<div><i class="fa-solid fa-forward-step"></i>
+							</div></a>
+						</div>		
+			</div>		
+		</div>
+<script >
+	function toggleList() {
+    var dropdownList = document.getElementById("dropdownList");
+    dropdownList.style.display = (dropdownList.style.display === "none" || dropdownList.style.display === "") ? "block" : "none";
+}
+	let progress = document.getElementById("progress");
+	let song = document.getElementById("song");
+	let ctrlIcon = document.getElementById("ctrlIcon");
+	let lyric =document.querySelector(".lyric");
+	let time =document.querySelector(".time");
+	const letter = document.querySelector('.current');
+
+
+	song.onloadedmetadata = function(){
+		progress.max = song.duration;
+		progress.value = song.currentTime;
+	}
+	function playPause(){
+		if(ctrlIcon.classList.contains("fa-pause")){
+			song.pause();
+			ctrlIcon.classList.remove("fa-pause");
+			ctrlIcon.classList.add("fa-play");
+
+		}
+		else{
+			song.play();
+			ctrlIcon.classList.add("fa-pause");
+			ctrlIcon.classList.remove("fa-play");
+		}
+	}
+
+
+	if(song.played){
+		setInterval(()=>{
+			progress.value = song.currentTime;
+			updateCurrentTime();
+		},500);
+	}
+
+	progress.oninput = function() {
+		
+		song.currentTime = 	progress.value;
+		ctrlIcon.classList.add("fa-pause");
+		ctrlIcon.classList.remove("fa-play");
+		updateCurrentTime();
+	}
+function updateCurrentTime() {
+				let minutes = Math.floor(song.currentTime / 60);
+				let seconds = Math.floor(song.currentTime % 60);
+				time.textContent = padTime(minutes) + ":" + padTime(seconds);
+			}
+
+			function padTime(time) {
+				return time < 10 ? "0" + time : time;
+			}
+	
+
+</script>
+<div></div>
+<div class="lyric1">
+	<div class="lyric-container">
+			<p class="current">	
+				[I don't need the job<br>
+I'm mother fucking boss (boss)*]⁵<br>
+I don't need a job ငါတိုကိုလိုက်မယှဉ်နဲ့<br>
+ဒီညမှာ shawty လေးတွခါးကိုလှုပ်ကာငါ့ရင်ခွင်ထဲ<br>
+တင်းပါးကို ကော့ခေါင်းကို မော့ကာဖက်ပြီး<br>
+အနောက်ကိုမှီလှည့် ရင်ဘတ်ချင်းနီးစပ်ဖို<br>
+အမှောင်နံရံမှာစကား တွေတည်မယ်<br>
+Let's get it<br>
+Jennifer Lopez လိုမျိုးဘော်ဒီ တွေက<br>
+အရမ်းကိုမိုက်တယ်ရင်သားကိုပင့်ထားတဲ့ push up<br>
+စော်လဲလက်ခံလိုက်တယ် မီး ရောင်စုံအောက်မှာ ခိုက်တယ်<br>
+နှုတ်ခမ်းပါးကိုသွားနဲ့ကိုက်တယ် အိမ်မပြန်ဘဲလိုက်မယ်ဆိုတဲ့<br>
+ကောင်မ လေးကအရမ်းကိုမိုက်တယ်<br>
+ရည်းစားတွေဖြစ်မှာဆိုတာမေ့ထား မေ့ထား မေ့ထား<br>
+အော်ကီး တွေတက်ကာဝေဝါး ဝေဝါး<br>
+ဆံနွယ် တွေလေပေါ်လွှင့်ထား မျက်လုံး တွေမှိတ်ကာခံစား<br>
+အန္တရာယ်များတယ်ဆိုတာ အလကားကိုကိုခါးကိုတင်း အောင်ဖက်ထား<br>
+I don't need the job<br>
+I'm mother fucking boss (boss)<br>
+နဖူးက ချွေးကခြေမကျ အောင်ကဲမယ် ဘော်ဒါ တွေငါ့လာမဆွဲနဲ့<br>
+ဒီweedကနည်းနည်းပြဲတယ် မျက်လုံး တွေနီကာရဲတယ်<br>
+10ခွဲမှာ အိမ်ပြန်မရောက်ရင် အမေကဆဲမှာစိုးလို<br>
+ရည်းစားလေးကိုအာဘွား ပေးကာအဝတ်အစားမြန်မြန်လဲတယ်<br>
+ကားပေါ်တက်မင်းတိုပါကားပေါ်တက် after after<br>
+တွေဆက်မယ် ခေါင်းတွေခါလှုပ်နေလျက် မန္တလေးကို <br>
+ဆက်ချီတက် ပိုက်ဆံတွေကြဲနေချက်<br>
+မီးပုံပွဲမှာဘယ်ညာ ရှေ့နောက်ကကာတီးခုန်ဆဲပါ<br>
+မလျှော့သော ဇွဲနဲ့ကခုန်တုန်း<br>
+အဖိုးကြီးအိုခါးကုန်းကုန်း မသေပါနဲ့အုန်း<br>
+နောက်နှစ်ခါclubတက်ဖို ပွဲကြည့်ပါအုန်း<br>
+I don't need the<br>
+I don't need the job<br>
+I'm mother fucking boss (boss)<br>
+				
+		</p>
+</div>
+</div>
+</div>
+
+</body>
+</html>

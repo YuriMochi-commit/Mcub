@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>လိပ်ပြာ by BLUCH</title>
+	<link rel="stylesheet" type="text/css" href="MusicPlayer.css">
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+
+	<div class="container">
+			<div class="bar">
+					<a href="Home.html" >
+					<i class="fa-sharp fa-regular fa-circle-left"></i>
+					</a>
+					<a href="C:\Users\SU LAE BO BO\Desktop\Mcube\Home.html" >
+					<i class="fa-solid fa-house"></i>
+					</a>
+			
+			</div>
+
+		<div class="musicBox">
+			<div class="music-player">
+				<div class="solidBar">
+				
+					<div class="circle" onclick="toggleList()">
+					<i class="fa-solid fa-bars"></i>
+					</div>
+				
+					<div class="dropdown-content" id="dropdownList" style="display: none;">
+			             
+			                <ul>
+			                    <li><a href="#">Item 1</a></li>
+			                    <li><a href="#">Item 2</a></li>
+			                    <li><a href="#">Item 3</a></li>
+			                </ul>
+            		</div>
+				
+					
+				</div>
+					<img src="A_Chit.jpg" class="song-img">
+				
+					<h1>အချစ်</h1>
+					<p>BG18</p>
+
+					<audio  id="song">
+						<source src="A_Chit.mp3" type="audio/mp3">
+					</audio>
+						<div class="time-container">
+						<span class="time" >00:00</span>
+						</div>
+							<input type="range" value="0" id="progress">
+						<div class="controls">
+							<div>
+								<i class="fa-solid fa-backward-step"></i>
+							</div>
+							<div onclick="playPause()"><i class="fa-solid fa-play" id="ctrlIcon"></i>
+							</div>
+							<div><i class="fa-solid fa-forward-step"></i>
+							</div>
+						</div>		
+			</div>		
+		</div>
+<script >
+	function toggleList() {
+    var dropdownList = document.getElementById("dropdownList");
+    dropdownList.style.display = (dropdownList.style.display === "none" || dropdownList.style.display === "") ? "block" : "none";
+}
+
+	let progress = document.getElementById("progress");
+	let song = document.getElementById("song");
+	let ctrlIcon = document.getElementById("ctrlIcon");
+	let lyric =document.querySelector(".lyric");
+	let time =document.querySelector(".time");
+	const letter = document.querySelector('.current');
+
+
+	song.onloadedmetadata = function(){
+		progress.max = song.duration;
+		progress.value = song.currentTime;
+	}
+	function playPause(){
+		if(ctrlIcon.classList.contains("fa-pause")){
+			song.pause();
+			ctrlIcon.classList.remove("fa-pause");
+			ctrlIcon.classList.add("fa-play");
+
+		}
+		else{
+			song.play();
+			ctrlIcon.classList.add("fa-pause");
+			ctrlIcon.classList.remove("fa-play");
+		}
+	}
+
+
+	if(song.played){
+		setInterval(()=>{
+			progress.value = song.currentTime;
+			updateCurrentTime();
+		},500);
+	}
+
+	progress.oninput = function() {
+		
+		song.currentTime = 	progress.value;
+		ctrlIcon.classList.add("fa-pause");
+		ctrlIcon.classList.remove("fa-play");
+		updateCurrentTime();
+	}
+function updateCurrentTime() {
+				let minutes = Math.floor(song.currentTime / 60);
+				let seconds = Math.floor(song.currentTime % 60);
+				time.textContent = padTime(minutes) + ":" + padTime(seconds);
+			}
+
+			function padTime(time) {
+				return time < 10 ? "0" + time : time;
+			}
+	
+
+</script>
+<div></div>
+<div class="lyric1">
+	<div class="lyric-container">
+			<p class="current">	
+
+				လူကိုပျော်ရွှင်စေတတ်တဲ့<br>
+				ဒါမှမဟုတ် ဝမ်းနည်းစေတတ်တဲ့အရာ<br>
+				အဲ့ဒီအရာကို အချစ်လို့သတ်မှတ်မလား<br>
+				ဘယ်လိုလူတိုင်းနဲ့မှ မကင်းတဲ့<br>
+				ချိုမြိန်နေမယ့် သောကလေးရယ်<br>
+				ဘယ်ဘာသာစကားနဲ့မှ<br>
+				ရှင်းပြဖွင့်ဟလို့ မပြည့်စုံခဲ့တယ်<br>
+				သူ့အတွက်ကြောင့် ဒူးထောက်ခဲ့ဖူးသလို<br>
+				လောကကြီးကို အရွဲ့တိုက်ဖို့ရူး<br>
+				ချစ်နေရရင် စက္ကန့်တိုင်းဟာ လှနေဦးမှာမို့<br>
+				ကိုယ့်ရဲ့အနားမှာ မင်းရှိပေးပါဦး<br>
+				ဘာတွေဝမ်းသာ ဘာကြောင့်ဝမ်းနည်း<br>
+				စိတ်တွေ ပင်ပန်းတယ်<br>
+				ရယ်သံများစွာကြား အမာရွတ်တွေ<br>
+				ဖွက်ထားရတဲ့ နေ့တွေနဲ့<br>
+				အဖြစ်ဟာ သိပ်ဆန်းကြယ်<br>
+				ငါရုန်းထွက်လေ ပိုပြီးနစ်ဝင်ခဲ့<br>
+				အချစ်တဲ့ (ရေး)<br>
+				ဒါကို တိုက်ဆိုင်မှုတဲ့လား (Aww)<br>
+				စကြာဝဠာတခုလုံးစာ ချစ်ခဲ့ကြတာ<br>
+				အဲ့တာ တိုက်ဆိုင်မှုမဟုတ်ဘူး<br>
+				ငါတို့ နှစ်ယောက်လုံးရဲ့ ရွေးချယ်မူ<br>
+				ဘယ်သူတွေ ထင်မှာလဲ<br>
+				ဒီလိုမျိုး ဇာတ်သိမ်းသွားလိမ့်မယ်လို့ မတွေးခဲ့ဘူး (ရေး)<br>
+				ချစ်သူမျက်နှာနဲ့ တစ်ကမ္ဘာလုံးကိုကျောခိုင်းပြီး<br>
+				အစဆုံး ငါပြောပြမယ်<br>
+				မင်းမကြိုက်တဲ့ ဆေးလိပ်တွေငါဖြတ်ခဲ့<br>
+				အသက်ထက် ပိုမြတ်နိုးလို့<br>
+				ခန္ဓာထက်စိတ်ကို ပိုမက်တယ်<br>
+				အချစ်ကို အမြဲတမ်းကိုးကွယ်သူတစ်ယောက်ရဲ့<br>
+				Trauma တွေ က အဆက်မပြတ်ပဲ<br>
+				Yeah စိတ်ဓာတ်တွေကျနေချိန် ငါ့ဘေးမှာ အားပေးကူမဲ့သူ<br>
+				မင်းတယောက်သာ မရှိတော့ရင်<br>
+				ငါဘာဆက်လုပ်ရမလဲ ငါမသိတော့ဘူး<br>
+				ပစ္စုပ္ပန်ဖြစ်နေတဲ့ အရာများကို<br>
+				ကျေနပ်စွာ မင်းလက်ခံရဲ့လား<br>
+				မင်းစိတ်နဲ့ အသက်ရှင်နေတဲ့ငါက<br>
+				အသက်ရှူရပ်တန့်ပြီး ငါကျန်ခဲ့မှာ<br>
+				အချစ်ဆိုတဲ့အရာ<br>
+				ဘယ်သူကမှားပြီး ဘယ်သူကမှန်လဲ<br>
+				အဖြေရှာလို့မရအောင် ငါဟာဉာဏ်နည်း<br>
+				မင်းစိတ်ကျေနပ်အောင် အမြဲတမ်းအမှန်ပဲထားပြီး<br>
+				ငါ့ရင်ဘတ်ကို အတောင့်လိုက်ကန်ထည့်<br>
+				မင်းလိုချင်နေတဲ့ မင်းရဲ့အနားမှာနေပြီး ဖြည့်ဆည်းပေးချင်ခဲ့<br>
+				အတတ်နိုင်ဆုံး ပျော်အောင်ထားပြီး<br>
+				မင်းဘေးမှာ အသင့်ရှိနေခဲ့<br>
+				ဘာတွေဝမ်းသာ ဘာကြောင့်ဝမ်းနည်း<br>
+				စိတ်တွေ ပင်ပန်းတယ်<br>
+				ရယ်သံများစွာကြား အမာရွတ်တွေ<br>
+				ဖွက်ထားရတဲ့ နေ့တွေနဲ့<br>
+				အဖြစ်ဟာ သိပ်ဆန်းကြယ်<br>
+				ငါရုန်းထွက်လေ ပိုပြီးနစ်ဝင်ခဲ့<br>
+				အချစ်တဲ့ (ရေး)<br>
+				ခံစားချက်နဲ့ အသက်ရှင်<br>
+				မင်းစိတ်နဲ့ အသက်ရှင်ခဲ့<br>
+				မျက်ဝန်းများက ပြောတဲ့စကား<br>
+				မမျှော်လင့်ထားတဲ့အချစ်နဲ့ ရင်ခုန်ရင်း<br>
+				အတူလျှောက်ခဲ့တဲ့ လမ်းလေး<br>
+				အေးစက်စက် ညနက်တစ်ချို့မှာ<br>
+				အထီးကျန်ခြင်းတွေ ထားရစ်လို့<br>
+				စုတ်ပြတ်သတ်အောင် လုပ်လို့သွားလည်း<br>
+				မုန်းလို့မရတဲ့ အဖြစ်မျိုး<br>
+				ဒါအချစ်လား ဝဋ်ကြွေးလား<br>
+				တစ်ရက်လေးမှ ထွက်ပြေးမရ<br>
+				ပျော်ရွှင်ခြင်းနဲ့ နာကျင်ခြင်းကို<br>
+				တစ်လှည့်စီ သူသင်ပေးသွား<br>
+				အတုအယောင်များကြားမှာ ငါရှင်သန်ရင်း<br>
+				ဘယ်အရာကို အချစ်လို့ငါ သတ်မှတ်မလဲ (ရေး ရေး)<br>
+				ရင်ခုန်သံအမှားများနဲ့ပြုံးမိတဲ့ နေ့ရက်တွေကတလွဲ<br>
+				အဆိပ်အတောက်များအပြည့်နဲ့ အချစ်ကိုစားသုံးရင်း<br>
+				ဘယ်လိုမှ ရုန်းထွက်မရလို့<br>
+				နေ့ရက်တိုင်းမှာ အသက်မဲ့ခဲ့<br>
+				Oh no<br>
+				Don't wanna love again<br>
+				ဘာတွေဝမ်းသာ ဘာကြောင့်ဝမ်းနည်း<br>
+				စိတ်တွေ ပင်ပန်းတယ်<br>
+				ရယ်သံများစွာကြား အမာရွတ်တွေ<br>
+				ဖွက်ထားရတဲ့ နေ့တွေနဲ့<br>
+				အဖြစ်ဟာ သိပ်ဆန်းကြယ်<br>
+				ငါရုန်းထွက်လေ ပိုပြီးနစ်ဝင်ခဲ့<br>
+				အချစ်တဲ့ (ရေး)<br>
+		</p>
+</div>
+</div>
+</div>
+
+</body>
+</html>

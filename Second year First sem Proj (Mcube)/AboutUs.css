@@ -1,0 +1,88 @@
+*{
+	margin: 0;
+	padding: 0;
+   font-family: sans-serif;
+                                                
+                                                
+	
+}
+ @import url('https://fonts.cdnfonts.com/css/dylova5tuff');
+
+
+                
+
+.content{
+	height: 600px;
+	width: 100%;
+	position: absolute;
+
+	top: 30%;
+	background-image: url('M1.jpg');
+	background-repeat: no-repeat;
+	background-size: 140% 90%;
+
+	
+}
+.left-col{
+	margin-top: 100px;
+	margin-left: 6%;
+
+}
+.left-col h1{
+	margin-top: 50px;
+	font-size: 90px;
+	color: white;
+	line-height: 110px;
+	float: left;
+
+}
+.right-col{
+	float: right;
+	margin-left: 6%;
+	margin-top: 100px;
+	display: flex;
+	align-items: center;
+
+}
+.right-col p{
+	font-size: 25px;
+	color: white;
+	font-weight: 400;
+	margin-right: 15px;
+
+}
+
+.B1{  width: 100%;
+	width: 310px;
+	padding: 20px 20px;
+	height: 200px;
+	box-sizing: border-box;
+	color: white;
+}
+.B1 p {
+	font-size: 20px;
+	margin-top: 50px;
+}
+.B1 h4{
+	color: white;
+	font-size: 28px;
+	
+
+}
+.C1{
+display: flex;
+height: auto;
+
+  width: 100%;
+  margin-top: 300px;
+  justify-content: space-evenly ;
+  flex-direction: row;
+}
+.C2{
+display: flex;
+height: auto;
+  width: 100%;
+  justify-content: space-evenly ;
+  flex-direction: row;
+}
+

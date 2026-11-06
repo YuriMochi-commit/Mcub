@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>No More Cry by Ye Yint Aung</title>
+	<link rel="stylesheet" type="text/css" href="MusicPlayer.css">
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+
+	<div class="container">
+			<div class="bar">
+			<a href="Pop.html" >
+					<i class="fa-sharp fa-regular fa-circle-left"></i>
+					</a>
+					<a href="Home.html" >
+					<i class="fa-solid fa-house"></i>
+					</a>
+			</div>
+		<div class="musicBox">
+			<div class="music-player">
+				<div class="solidBar">
+				
+					<div class="circle" onclick="toggleList()">
+					<i class="fa-solid fa-bars"></i>
+					<i class="fa-solid fa-download"></i>
+					</div>
+				
+					<div class="dropdown-content" id="dropdownList" style="display: none;">
+			             
+			                <ul>
+			                   <li><a href="#"> Favourite</a></li>
+			                    <li><a href="#"> Playlists</a></li>
+			                    <li><a href="#">Download</a></li>
+			                </ul>
+            		</div>	
+				
+					
+				</div>
+					<img src="NoMoreCry.jpg" class="song-img">
+				
+					<h1>No More Cry</h1>
+					<p>Ye Yaint Aung</p>
+
+					<audio  id="song">
+						<source src="NoMoreCry.mp3" type="audio/mp3">
+					</audio>
+						<div class="time-container">
+						<span class="time" >00:00</span>
+						</div>
+							<input type="range" value="0" id="progress">
+						<div class="controls">
+							<div><i class="fa-solid fa-backward-step"></i>
+							</div>
+							<div onclick="playPause()"><i class="fa-solid fa-play" id="ctrlIcon"></i>
+							</div>
+							<div><i class="fa-solid fa-forward-step"></i>
+							</div>
+						</div>		
+			</div>		
+		</div>
+<script >
+	function toggleList() {
+    var dropdownList = document.getElementById("dropdownList");
+    dropdownList.style.display = (dropdownList.style.display === "none" || dropdownList.style.display === "") ? "block" : "none";
+}
+	let progress = document.getElementById("progress");
+	let song = document.getElementById("song");
+	let ctrlIcon = document.getElementById("ctrlIcon");
+	let lyric =document.querySelector(".lyric");
+	let time =document.querySelector(".time");
+	const letter = document.querySelector('.current');
+
+
+	song.onloadedmetadata = function(){
+		progress.max = song.duration;
+		progress.value = song.currentTime;
+	}
+	function playPause(){
+		if(ctrlIcon.classList.contains("fa-pause")){
+			song.pause();
+			ctrlIcon.classList.remove("fa-pause");
+			ctrlIcon.classList.add("fa-play");
+
+		}
+		else{
+			song.play();
+			ctrlIcon.classList.add("fa-pause");
+			ctrlIcon.classList.remove("fa-play");
+		}
+	}
+
+
+	if(song.played){
+		setInterval(()=>{
+			progress.value = song.currentTime;
+			updateCurrentTime();
+		},500);
+	}
+
+	progress.oninput = function() {
+		
+		song.currentTime = 	progress.value;
+		ctrlIcon.classList.add("fa-pause");
+		ctrlIcon.classList.remove("fa-play");
+		updateCurrentTime();
+	}
+function updateCurrentTime() {
+				let minutes = Math.floor(song.currentTime / 60);
+				let seconds = Math.floor(song.currentTime % 60);
+				time.textContent = padTime(minutes) + ":" + padTime(seconds);
+			}
+
+			function padTime(time) {
+				return time < 10 ? "0" + time : time;
+			}
+	
+
+</script>
+<div></div>
+<div class="lyric1">
+	<div class="lyric-container">
+			<p class="current">	
+					မင်းပြောသမျှအကုန်<br>
+နင်လိုချင်တာအကုန်ဖြည့်ဆည်းပေးချင်တယ်<br>
+but girl..<br>
+ငါဖြည့်ဆည်းမပေးနိုင်ဘူး<br>
+တကယ်ဖြည့်ဆည်းပေးနိုင်သူ<br>
+နင့်အနားရှိနေရင်<br>
+
+ငါနင့်အတွက်မငိုတော့ဘူး.........<br>
+
+Ok...<br>
+
+
+Baby Girl! i need you to understand<br>
+this ain't no drama<br>
+this ain't the story's end,<br>
+you're my heaven sent<br>
+in this wonderland,<br>
+baby you're the one<br>
+the best i've ever had<br>
+I need you to understand,<br>
+this ain't no drama,<br>
+this ain't the story's end,<br>
+you're my heaven sent,<br>
+in this wonderland,<br>
+hell no..! he can never be a better man.<br>
+
+
+အားလုံးစွန့်လွှတ်လိုက်ပါတယ်<br>
+နင်ပြောသမျှ စကားတွေလည်း<br>
+မျှော်လင့်လို့ မထားမိခဲ့ဘူး<br>
+ဒီလိုမျိုးပြောငး်လဲလာမယ်<br>
+မေ့ပစ်လိုက်ပြီတဲ့<br>
+ငါဘာမှမတတ်နိုင်ခဲ့<br>
+ယုံစားမိခဲ့လို့အခု<br>
+ငါအရူးတစ်ပိုင်းဖြစ်နေခဲ့...<br>
+
+
+ငါကိုယ်တိုင်မီးရှို့ပြာချလိုက်တဲ့<br>
+ငါရဲ့မာန်မာနတွေ Oh Girl!<br>
+နင့်ရဲ့စကားသံအချို့ငါပြန်ကာကြားနေ<br>
+ပေါက်တတ်ကရတွေစွပ်စွဲအတင်း<br>
+ရန်ရှာသမျှတွေ<br>
+အားလုံးခွင့်လွှတ်ပါတယ်<br>
+ငါ့ရဲ့ pink panther မေလး..<br>
+Baby Listen Up!..<br>
+ငါပြောတာအခုနင်ကြားလား<br>
+ရဲရင့်အောင်လိုပဲ<br>
+လူတိုင်းကိုမထင်နဲ့ကစားစရာ<br>
+ချုပ်ချယ်မှုတွေများစွာနဲ့<br>
+ငါ့ရဲ့လက်တွေကြားက<br>
+ပျော်ရွှင်မှုတွေမတွေ့နိုင်တဲ့အခါ<br>
+ရပါတယ္ထြက္သြားပါ...<br>
+
+
+မင်းပြောသမျှအကုန်<br>
+နင်လိုချင်တာအကုန်ဖြည့်ဆည်းပေးချင်တယ်<br>
+but girl..<br>
+ငါဖြည့်ဆည်းမပေးနိုင်ဘူး<br>
+တကယ်ဖြည့်ဆည်းပေးနိုင်သူ<br>
+နင့်အနားရှိနေရင်<br>
+ငါနင့်အတွက်မငိုတော့ဘူး.........<br>
+
+ဟိုးအဆုံးသတ်လို့ထားခဲ့<br>
+အားလုံးဆုံးရှုံးသွားတာငါပဲ<br>
+ဘာတစ်ခုမှဖမ်းဆုပ်မရခဲ့အရင်လို (Oh..oh..)<br>
+အတူပျော်ဖူးတဲ့နေ့ညများ<br>
+အကုန်ပျောက်ဆုံးလို့သွားပြီကွာ<br>
+အချစ်တွေ အနမ်းတွေ<br>
+အိပ်မက်တွေ ပြာချပြီး နင်ထွက်ပြေး..<br>
+
+Honey!..<br>
+ငါနဲ့မတွေ့ဖြစ်တဲ့အချိန်တွေဆိုအိမ်မှာနေပါ<br>
+ငါချစ်လို့ပြောတာ<br>
+နင့်အတွက်တော့ ကျိန်စာတွေလား<br>
+ငါတို့နှစ်ယောက်ရဲ့ပတ်သက်မှုက<br>
+တိမ်လွှာတွေကြား လွင့်ကာပျောက်ကွယ်သွားလည်း<br>
+သူကငါ့ထက်ကောင်းရင်လိမ္မာနေပါဟာ<br>
+ငါနဲ့ပတ်သက်နေလို့ ဘာမှမဖြစ်ထွန်းခဲ့<br>
+တန်ဖိုးရှိတဲ့ နင့်ရဲ့အချိန်တွေ<br>
+ငါ့ကြောင့်ပဲ နစ်မွန်းတယ်<br>
+ကလေးဆန်လွန်းတဲ့အဲ့ဒီစိတ်ကြောင့်နင့်ဘဲကို<br>
+လိုချင်တာမရတဲ့အခါတိုင်း<br>
+စိတ်ကောက်မနေနဲ့ဦး..<br>
+
+မင်းပြောသမျှအကုန်<br>
+နင်လိုချင်တာအကုန်ဖြည့်ဆည်းပေးချင်တယ်<br>
+but girl..<br>
+ငါဖြည့်ဆည်းမပေးနိုင်ဘူး<br>
+တကယ်ဖြည့်ဆည်းပေးနိုင်သူ<br>
+နင့်အနားရှိနေရင်<br>
+ငါနင့်အတွက်မငိုတော့ဘူး.........<br>
+
+
+မငိုတော့ဘူး Girl.. ရင်ဘတ်တွေနာနေလည်း<br>
+တစ်ယောက်ထဲခေါင်းတွေငြိမ့်<br>
+တစ်ယောက်ထဲခေါင်းတွေခါနေခဲ့<br>
+
+နင်ပျော်ရွှင်စွာနဲ့<br>
+အရာရာမေ့ပြီးအသက်ရှူဖို့<br>
+
+I have to see you cry, baby<br>
+I Love You So,<br>
+
+နင်အမြဲတမ်းပြောခဲ့တာ<br>
+together forever..<br>
+
+but now..but now<br>
+but now..but now..forever is over..<br>
+အားလုံးအဆုံးသတ်လိုက်တော့တို့<br>
+နှစ်ယောက်အကြောင်း..<br>
+
+
+မင်းပြောသမျှအကုန်<br>
+နင်လိုချင်တာအကုန်ဖြည့်ဆည်းပေးချင်တယ်<br>
+but girl..<br>
+ငါဖြည့်ဆည်းမပေးနိုင်ဘူး<br>
+တကယ်ဖြည့်ဆည်းပေးနိုင်သူ<br>
+နင့်အနားရှိနေရင်<br>
+ငါနင့်အတွက်မငိုတော့ဘူး......<br>
+
+			</p>
+</div>
+</div>
+</div>
+
+</body>
+</html>

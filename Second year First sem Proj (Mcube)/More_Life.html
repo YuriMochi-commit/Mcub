@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>More Life by Floke Rose</title>
+	<link rel="stylesheet" type="text/css" href="MusicPlayer.css">
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+
+	<div class="container">
+			<div class="bar">
+		<a href="All.html" >
+					<i class="fa-sharp fa-regular fa-circle-left"></i>
+					</a>
+					<a href="Home.html" >
+					<i class="fa-solid fa-house"></i>
+					</a>
+			</div>
+		<div class="musicBox">
+			<div class="music-player">
+				<div class="solidBar">
+				
+					<div class="circle" onclick="toggleList()">
+					<i class="fa-solid fa-bars"></i>
+					<i class="fa-solid fa-download"></i>
+					</div>
+				
+					<div class="dropdown-content" id="dropdownList" style="display: none;">
+			             
+			                <ul>
+			                   <li><a href="#"> Favourite</a></li>
+			                    <li><a href="#"> Playlists</a></li>
+			                    <li><a href="#">Download</a></li>
+			                </ul>
+            		</div>	
+            	</div>
+					<img src="More Life.jpg" class="song-img">
+				
+					<h1>More Life</h1>
+					<p>Floke Rose</p>
+
+					<audio  id="song">
+						<source src="More Life.mp3" type="audio/mp3">
+					</audio>
+						<div class="time-container">
+						<span class="time" >00:00</span>
+						</div>
+							<input type="range" value="0" id="progress">
+						<div class="controls">
+							<div><i class="fa-solid fa-backward-step"></i>
+							</div>
+							<div onclick="playPause()"><i class="fa-solid fa-play" id="ctrlIcon"></i>
+							</div>
+							<div><i class="fa-solid fa-forward-step"></i>
+							</div>
+						</div>		
+			</div>		
+		</div>
+<script >
+	function toggleList() {
+    var dropdownList = document.getElementById("dropdownList");
+    dropdownList.style.display = (dropdownList.style.display === "none" || dropdownList.style.display === "") ? "block" : "none";
+}
+	let progress = document.getElementById("progress");
+	let song = document.getElementById("song");
+	let ctrlIcon = document.getElementById("ctrlIcon");
+	let lyric =document.querySelector(".lyric");
+	let time =document.querySelector(".time");
+	const letter = document.querySelector('.current');
+
+
+	song.onloadedmetadata = function(){
+		progress.max = song.duration;
+		progress.value = song.currentTime;
+	}
+	function playPause(){
+		if(ctrlIcon.classList.contains("fa-pause")){
+			song.pause();
+			ctrlIcon.classList.remove("fa-pause");
+			ctrlIcon.classList.add("fa-play");
+
+		}
+		else{
+			song.play();
+			ctrlIcon.classList.add("fa-pause");
+			ctrlIcon.classList.remove("fa-play");
+		}
+	}
+
+
+	if(song.played){
+		setInterval(()=>{
+			progress.value = song.currentTime;
+			updateCurrentTime();
+		},500);
+	}
+
+	progress.oninput = function() {
+		
+		song.currentTime = 	progress.value;
+		ctrlIcon.classList.add("fa-pause");
+		ctrlIcon.classList.remove("fa-play");
+		updateCurrentTime();
+	}
+function updateCurrentTime() {
+				let minutes = Math.floor(song.currentTime / 60);
+				let seconds = Math.floor(song.currentTime % 60);
+				time.textContent = padTime(minutes) + ":" + padTime(seconds);
+			}
+
+			function padTime(time) {
+				return time < 10 ? "0" + time : time;
+			}
+	
+
+</script>
+<div></div>
+<div class="lyric1">
+	<div class="lyric-container">
+			<p class="current">	
+			စီးပွားရေးသမားဖြစ်ချင်တယ်<br>
+			အဆိုတော်ကြီးလည်းဖြစ်ချင်တယ်<br>
+			ဘုန်းကြီးတစ်ပါးလည်းဖြစ်ချင်တယ်<br>
+			ရာဇဝတ်သားလည်းဖြစ်ချင်တယ်<br>
+			လူဆိုးဖမ်းတဲ့ ရဲကြီးလည်းငါဖြစ်ချင်တယ်<br>
+			စည်ပင်မှာအလုပ်လုပ်တဲ့ အလုပ်သမားလေးဖြစ်ချင်တယ်<br>
+			လှည်းကြီးကို ငါတွန်းချင်တယ် <br>သစ်ရွက်ခြောက်တွေကောက်ချင်တယ်<br>
+			ပုံမှန်ဝန်ထမ်းဘဝလေးလို ဘတ်စ်ကားစောင့်ချင်တယ်<br>
+			လယ်သမားကြီးဖြစ်ချင်တယ်<br>
+			နွားကျောင်းသားလေးဖြစ်ချင်တယ်<br>
+			နွေလေပူရဲ့အဝေ့မှာ သစ်ပင်ကြီးရဲ့အောက်<br>
+			စွပ်ကျယ်လေးနဲ့အေးအေးဆေးဆေး အိပ်ချင်တယ်<br>
+			ရွှေလင်ဗန်းနဲ့ အချင်းဆေးပြီးမွေးချင်တယ်<br>
+			လိုတရဘဝမျိုးနဲ့တွေ့ချင်တယ်<br>
+			တောင်ကုန်းပေါ်က အိမ်ကလေးမှာနေချင်တယ်<br>
+			လူမသိ သူမသိနဲ့ သေချင်တယ်<br>
+			I need more life<br>
+			More life<br>
+			More life<br>
+			More life<br>
+			ဒီဘဝတစ်ခုနဲ့ ငါ့မှာပြည့်စုံမလုံလောက်ဘဲ<br>
+			လူ့လောကကြီးရဲ့အလယ်<br>
+			I need more life<br>
+			More life<br>
+			More life<br>
+			More life<br>
+			အသက်တို့က ရှူမဝပါ<br>
+			ခုန်နေဆဲ ငါ့နှလုံးသား<br>
+			သမ္မတကြီးလည်းဖြစ်ချင်တယ်<br>
+			ဆိုက်ကားသမားလည်းဖြစ်ချင်တယ်<br>
+			ကန္တာရလိုနေရာမျိုးမှာ နောင်လာနောင်သားများအတွက်<br>
+			သစ်ပင်စိုက်တဲ့ လူတစ်ယောက်ဖြစ်ချင်တယ်<br>
+			သူတောင်းစားများလိုမျိုး ငါဟာ ဂုံးတံတားအောက်မှာပျော်မယ်<br>
+			ဆင်းရဲချို့တဲ့မှုရဲ့ကြားမှာ လွတ်လပ်မှုဟာ အဖော်ပဲ<br>
+			ကျူးကျော်တဲလေးတွေကြားထဲမှာနေချင်တယ်<br>
+			မီးရထားသံလမ်းထက်မှာဆော့ချင်တယ်<br>
+			နိုင်ငံခြားမှာကျောင်းတက် ဘွဲ့တွေရ<br>
+			Style Pant နဲ့ ရှုးဖိနပ်ပဲ ဝတ်ချင်တယ်<br>
+			မချစ်တတ်တဲ့ လူတစ်ယောက်ဖြစ်ချင်တယ်<br>
+			ငြိမ်းချမ်းတဲ့ လူတစ်ယောက်ဖြစ်ချင်တယ်<br>
+			အားလုံးကိုပေါ့ပေါ့လေးသဘောထားပြီး<br>
+			ဘာမှ မတွေးတတ်တဲ့လူတစ်ယောက်ဖြစ်ချင်တယ်<br>
+			I need more life<br>
+			More life<br>
+			More life<br>
+			More life<br>
+			ဒီဘဝတစ်ခုနဲ့ ငါ့မှာပြည့်စုံမလုံလောက်ဘဲ<br>
+			လူ့လောကကြီးရဲ့အလယ်<br>
+			I need more life<br>
+			More life<br>
+			More life<br>
+			More life<br>
+			အသက်တို့က ရှူမဝပါ<br>
+			ခုန်နေဆဲ ငါ့နှလုံးသား<br>
+			ခရိုနီကြီးလည်းဖြစ်ချင်တယ်<br>
+			စားပွဲထိုးလေးဖြစ်ချင်တယ်<br>
+			မီးသတ်သမားကြီးဖြစ်ချင်တယ်<br>
+			ကျောင်းဆရာလေးလည်းဖြစ်ချင်တယ်<br>
+			အမျိုးကောင်းသားတွေမွေးထုတ်ပေးတဲ့ <br>မိန်းမတစ်ယောက်ဖြစ်ချင်တယ်<br>
+			မြန်မာပြည်မှာအနှိမ်ခံရတဲ့ LGBT ဖြစ်ချင်တယ်<br>
+			Scientist လည်းဖြစ်ချင်တယ်<br>
+			Mr.Bean လည်းဖြစ်ချင်တယ်<br>
+			ဘုရားသခင်လည်းဖြစ်ချင်တယ်<br>
+			လူအမျိုးမျိုး ဘဝအထွေထွေဆိုတာကို ငါခံစားချင်တာ<br>
+			ဘဝတစ်ခုဆုံးပြီးတိုင်း အသစ်တစ်ခုကို ပြန်စချင်တာ<br>
+			တခါတလေကြ လောကကြီးမှာ အရိုးသားဆုံးဖြစ်ပြီးတော့<br>
+			တခါတလေမှာ အကောက်ကျစ်ဆုံး ယုတ်မာပြီး <br>ညဏ်များချင်တာ<br>
+			ထာဝရဆိုတာ အတိအကျမတွေ့<br>
+			ဘယ်အချိန်သေမယ်မှန်း မသိရသရွေ့<br>
+			ကမ္ဘာကြီးကို ငါကြည့်မဝသေး<br>
+			မသေဆေးတွေပေါ်တဲ့နေ့မှာ လူသားတစ်ယောက်အဖြစ်ရှိပါရစေ<br>
+			I need more life<br>
+			More life<br>
+			More life<br>
+			More life<br>
+			ဒီဘဝတစ်ခုနဲ့ ငါ့မှာပြည့်စုံမလုံလောက်ဘဲ<br>
+			လူ့လောကကြီးရဲ့အလယ်<br>
+			I need more life<br>
+			More life<br>
+			More life<br>
+			More life<br>
+			အသက်တို့က ရှူမဝပါ<br>
+			ခုန်နေဆဲ ငါ့နှလုံးသား<br>
+
+		</p>
+</div>
+</div>
+</div>
+
+</body>
+</html>

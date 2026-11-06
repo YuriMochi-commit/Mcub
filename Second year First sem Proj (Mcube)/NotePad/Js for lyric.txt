@@ -1,0 +1,69 @@
+async function start(e){
+		let index = 1;
+		(await loadFile("lyric.lrc")).forEach(line => {
+			line = line.trim();
+			let minute = parseInt(line.substr(1,2));
+			let second = parseInt(line.substr(4,5));
+
+			if(isNaN(minute) || isNaN(second)) return;
+
+			let text = line.substr(line.indexOf("]") +1, line.length).trim();
+			setTimeout(() =>{
+				lyric.style.transform = `rotateZ(${index++ * 360}deg`;
+				lyric.innerText = text;
+			} , (second + (minute * 60)) * 1000);
+
+		});
+	}
+	setInterval(() => {
+		let current = math.floor(audio.currentTime);
+		let minute = math.floor(current / 60);
+		let second = current % 60;
+		minute = minute < 10 ? '0' + minute : minute;
+		second = second < 10 ? '0' + second : second;
+
+		time.innerText = `${minute}:${second}`;
+		progresses.forEach(progress => {
+			progress.style.strokeDashoffset = 1414 - (1414 * ((current / audio.duration) * 100)) / 100 
+		});
+	} ,1000);
+
+
+
+.progress{
+	stroke-dasharray: 1414;
+	stroke-dashoffset: 1414;
+	transform-origin: center center ;
+	transform: rotate(0deg);
+}
+
+
+if(song.played){
+		setInterval(()=>{
+			progress.value = song.currentTime;
+			updateCurrentTime();
+		},500);
+	}
+
+fadeInOut 5s linear infinite,
+
+@keyframes fadeInOut {
+    0%, 100% {
+        opacity: 0.5;
+    }
+    50% {
+        opacity: 1;
+    }
+}
+
+,scaleUp 4s linear infinite;
+
+
+@keyframes scaleUp {
+    0%, 100% {
+        transform: scale(1);
+    }
+    70% {
+        transform: scale(1.1);
+    }
+}

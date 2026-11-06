@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>နှလုံးသားရဲ့နေရာတိုင်းမှာ By He Lay & Yoon Myat Thu</title>
+	<link rel="stylesheet" type="text/css" href="MusicPlayer.css">
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+
+	<div class="container">
+			<div class="bar">
+			<a href="Song.html#နှလုံးသားရဲ့နေရာတိုင်းမှာ" >
+					<i class="fa-sharp fa-regular fa-circle-left"></i>
+					</a>
+					<a href="Home.html" >
+					<i class="fa-solid fa-house"></i>
+					</a>
+			</div>
+		<div class="musicBox">
+			<div class="music-player">
+				<div class="solidBar">
+				
+					<div class="circle" onclick="toggleList()">
+					<i class="fa-solid fa-bars"></i>
+					<i class="fa-solid fa-download"></i>
+					</div>
+				
+					<div class="dropdown-content" id="dropdownList" style="display: none;">
+			             
+			                <ul>
+			                   <li><a href="#"> Favourite</a></li>
+			                    <li><a href="#"> Playlists</a></li>
+			                    <li><a href="#">Download</a></li>
+			                </ul>
+            		</div>	
+            	</div>
+					<img src="နှလုံးသားရဲ့နေရာတိုင်းမှာ.jpg" class="song-img">
+				
+					<h1>နှလုံးသားရဲ့နေရာတိုင်းမှာ</h1>
+					<p>He Lay & Yoon Myat Thu</p>
+
+					<audio  id="song">
+						<source src="နှလုံးသားရဲ့နေရာတိုင်းမှာ.mp3" type="audio/mp3">
+					</audio>
+						<div class="time-container">
+						<span class="time" >00:00</span>
+						</div>
+							<input type="range" value="0" id="progress">
+						<div class="controls">
+							<a href="Boss.html">
+							<div><i class="fa-solid fa-backward-step"></i>
+							</div>
+						</a>
+							<div onclick="playPause()"><i class="fa-solid fa-play" id="ctrlIcon"></i>
+							</div>
+							<a href="December.html">
+							<div><i class="fa-solid fa-forward-step"></i>
+							</div>
+						</a>
+						</div>		
+			</div>		
+		</div>
+<script >
+
+	function toggleList() {
+    var dropdownList = document.getElementById("dropdownList");
+    dropdownList.style.display = (dropdownList.style.display === "none" || dropdownList.style.display === "") ? "block" : "none";
+}
+	let progress = document.getElementById("progress");
+	let song = document.getElementById("song");
+	let ctrlIcon = document.getElementById("ctrlIcon");
+	let lyric =document.querySelector(".lyric");
+	let time =document.querySelector(".time");
+	const letter = document.querySelector('.current');
+
+
+	song.onloadedmetadata = function(){
+		progress.max = song.duration;
+		progress.value = song.currentTime;
+	}
+	function playPause(){
+		if(ctrlIcon.classList.contains("fa-pause")){
+			song.pause();
+			ctrlIcon.classList.remove("fa-pause");
+			ctrlIcon.classList.add("fa-play");
+
+		}
+		else{
+			song.play();
+			ctrlIcon.classList.add("fa-pause");
+			ctrlIcon.classList.remove("fa-play");
+		}
+	}
+
+
+	if(song.played){
+		setInterval(()=>{
+			progress.value = song.currentTime;
+			updateCurrentTime();
+		},500);
+	}
+
+	progress.oninput = function() {
+		
+		song.currentTime = 	progress.value;
+		ctrlIcon.classList.add("fa-pause");
+		ctrlIcon.classList.remove("fa-play");
+		updateCurrentTime();
+	}
+function updateCurrentTime() {
+				let minutes = Math.floor(song.currentTime / 60);
+				let seconds = Math.floor(song.currentTime % 60);
+				time.textContent = padTime(minutes) + ":" + padTime(seconds);
+			}
+
+			function padTime(time) {
+				return time < 10 ? "0" + time : time;
+			}
+	
+
+</script>
+<div></div>
+<div class="lyric1">
+	<div class="lyric-container">
+			<p class="current">	
+မင်းနဲ့တို့ရဲ့ ဇာတ်လမ်းလေးတွေ<br>
+အဆုံးသတ်ရမယ့် အခိုက်အတန့်မှာ<br>
+လမ်းခွဲနှုတ်ဆက် ဒီအချိန်လေး<br>
+ဝေးရတော့မှာလား<br>
+
+ပြောင်းလဲခြင်းရဲ့ အခြားတစ်ဖက်မှာ<br>
+အသည်းကွဲခဲ့တဲ့ တို့နှစ်ယောက်ဟာ<br>
+ရက်စက်လွန်းတဲ့ ကံကြမ္မာရယ်<br>
+လှည့်ကွက်တို့ အလယ်မှာ<br>
+
+တို့နှစ်ယောက် တကယ်ကို<br>
+ဝေးကြပြီကွာ သိပ်ချစ်ရက်နဲ့ ခွဲခွာ<br>
+အခုတော့ကိုယ်လေ ရူးတော့မယ်ကွာ<br>
+ခံစားချက်တို့ အလယ်မှာ ..<br>
+
+
+နှလုံးသားရဲ့ နေရာတိုင်းမှာ<br>
+မင်းလေးရဲ့ ပုံရိပ်များစွာ<br>
+ဝေးသွားတော့ ကိုယ်တစ်ယောက်တည်း<br>
+ရင်မှာတကယ်ကို လွမ်းလို့နေခဲ့တာ<br>
+
+မင်းအနားနား နေချင်လည်းကွာ<br>
+ဖြစ်တဲ့ဘဝ စာနာပေးပါ<br>
+မပြောင်းလဲတဲ့ အကြင်နာနဲ့<br>
+ရင်မှာတကယ်ကို ချစ်မိနေဆဲပါ<br>
+
+
+
+ချစ်ခဲ့ကြတဲ့ နေ့ရက်တွေ<br>
+လွမ်းခဲ့ရတဲ့ အခိုက်အတန့်မှာ<br>
+တမ်းတခဲ့တဲ့ အကြင်နာများ<br>
+နောက်ထပ် မရနိုင်တာ<br>
+
+ပြောင်းလဲခြင်းရဲ့ အခြားတစ်ဖက်မှာ<br>
+အသည်းကွဲခဲ့တဲ့ တို့နှစ်ယောက်ဟာ<br>
+ရက်စက်လွန်းတဲ့ ကံကြမ္မာရဲ့<br>
+လှည့်ကွက်တို့ အလယ်မှာ<br>
+
+တို့နှစ်ယောက် တကယ်ကို<br>
+ဝေးကြပြီကွာ သိပ်ချစ်ရက်နဲ့ ခွဲခွာ<br>
+အခုတော့ကိုယ်လေ ရူးတော့မယ်ကွာ<br>
+ခံစားချက်တို့ အလယ်ထဲ..မှာ<br>
+
+နှလုံးသားရဲ့ နေရာတိုင်းမှာ<br>
+မင်းလေးရဲ့ ပုံရိပ်များစွာ<br>
+ဝေးသွားတော့ ကိုယ်တစ်ယောက်တည်း<br>
+ရင်မှာတကယ်ကို လွမ်းလို့နေခဲ့တာ<br>
+
+မင်းအနားနား နေချင်လည်းကွာ<br>
+ဖြစ်တဲ့ဘဝ စာနာပေးပါ<br>
+မပြောင်းလဲတဲ့ အကြင်နာနဲ့<br>
+
+ရင်မှာတကယ်ကို ချစ်မိနေဆဲပါ<br>
+
+
+
+နှလုံးသားလေးရဲ့ နေရာတိုင်းမှာ<br>
+မင်းပေးခဲ့တဲ့ အချစ်များစွာ<br>
+သေရာပါအောင် လွမ်းလွန်းတဲ့အခါ<br>
+အသိအမှတ် ပြုမှာလား<br>
+
+နှလုံးသားလေးရဲ့ နေရာတိုင်းမှာ<br>
+မင်းပေးခဲ့တဲ့ အချစ်များစွာ<br>
+သေရာပါအောင် လွမ်းလွန်းတဲ့အခါ<br>
+
+အသိအမှတ် ပြုပါ့မလား<br>
+		</p>
+</div>
+</div>
+</div>
+
+</body>
+</html>

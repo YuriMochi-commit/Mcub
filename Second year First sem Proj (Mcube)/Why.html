@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Why by Double-J</title>
+	<link rel="stylesheet" type="text/css" href="MusicPlayer.css">
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+
+	<div class="container">
+			<div class="bar">
+			<a href="All.html" >
+					<i class="fa-sharp fa-regular fa-circle-left"></i>
+					</a>
+					<a href="Home.html" >
+					<i class="fa-solid fa-house"></i>
+					</a>
+			</div>
+		<div class="musicBox">
+			<div class="music-player">
+				<div class="solidBar">
+				
+					<div class="circle" onclick="toggleList()">
+					<i class="fa-solid fa-bars"></i>
+					<i class="fa-solid fa-download"></i>
+					</div>
+				
+					<div class="dropdown-content" id="dropdownList" style="display: none;">
+			             
+			                <ul>
+			                   <li><a href="#"> Favourite</a></li>
+			                    <li><a href="#"> Playlists</a></li>
+			                    <li><a href="#">Download</a></li>
+			                </ul>
+            		</div>	
+				</div>
+					<img src="why.jpg" class="song-img">
+				
+					<h1>Why</h1>
+					<p>Double-J</p>
+
+					<audio  id="song">
+						<source src="why.mp3" type="audio/mp3">
+					</audio>
+						<div class="time-container">
+						<span class="time" >00:00</span>
+						</div>
+							<input type="range" value="0" id="progress">
+						<div class="controls">
+							<div><i class="fa-solid fa-backward-step"></i>
+							</div>
+							<div onclick="playPause()"><i class="fa-solid fa-play" id="ctrlIcon"></i>
+							</div>
+							<div><i class="fa-solid fa-forward-step"></i>
+							</div>
+						</div>		
+			</div>		
+		</div>
+<script >
+	function toggleList() {
+    var dropdownList = document.getElementById("dropdownList");
+    dropdownList.style.display = (dropdownList.style.display === "none" || dropdownList.style.display === "") ? "block" : "none";
+}
+	let progress = document.getElementById("progress");
+	let song = document.getElementById("song");
+	let ctrlIcon = document.getElementById("ctrlIcon");
+	let lyric =document.querySelector(".lyric");
+	let time =document.querySelector(".time");
+	const letter = document.querySelector('.current');
+
+
+	song.onloadedmetadata = function(){
+		progress.max = song.duration;
+		progress.value = song.currentTime;
+	}
+	function playPause(){
+		if(ctrlIcon.classList.contains("fa-pause")){
+			song.pause();
+			ctrlIcon.classList.remove("fa-pause");
+			ctrlIcon.classList.add("fa-play");
+
+		}
+		else{
+			song.play();
+			ctrlIcon.classList.add("fa-pause");
+			ctrlIcon.classList.remove("fa-play");
+		}
+	}
+
+
+	if(song.played){
+		setInterval(()=>{
+			progress.value = song.currentTime;
+			updateCurrentTime();
+		},500);
+	}
+
+	progress.oninput = function() {
+		
+		song.currentTime = 	progress.value;
+		ctrlIcon.classList.add("fa-pause");
+		ctrlIcon.classList.remove("fa-play");
+		updateCurrentTime();
+	}
+function updateCurrentTime() {
+				let minutes = Math.floor(song.currentTime / 60);
+				let seconds = Math.floor(song.currentTime % 60);
+				time.textContent = padTime(minutes) + ":" + padTime(seconds);
+			}
+
+			function padTime(time) {
+				return time < 10 ? "0" + time : time;
+			}
+	
+
+</script>
+<div></div>
+<div class="lyric1">
+	<div class="lyric-container">
+			<p class="current">	
+			စကားလုံးရဲ့အဆုံးမှာ မင်းလေးမျက်ရည်ပြို<br>
+			နာကျင်စွာနဲ့ လမ်းခွဲခြင်းကိုရွေး<br>
+			ကမ္ဘာတူနေလည်း ချစ်ဖို့မဖြစ်နိုင်သေး<br>
+			မချစ်လို့မှမဟုတ်တာကို မင်းလည်းသိမယ်လို့<br>
+			ဝန်ခံချင်ရက် ဖွင့်ဟခွင့်တောင်မရခဲ့<br>
+			ပိုင်ဆိုင်ချင်ရက်စွန့်လွှတ်လိုက်တာ<br>
+			ငါ့အမှား..ပဲ<br><br>
+
+
+			ရူးရူးမိုက်မိုက် ဒို့စွဲလမ်းကြတယ်<br>
+			အချစ်တစ်ခုအောက်မှာ ကျရှုံးခဲ့ရတယ်<br>
+			ငါနင့်ကိုဘာကြောင့်များ ချစ်မိသွားလဲ<br>
+			ငါနဲ့နင်နဲ့ဘာကြောင့် ချစ်ခဲ့ကြလဲ<br>
+			အေးတိအေးစက်မင်းအပြုများနောက်ကွယ်<br>
+			မပြောဖြစ်ခဲ့တဲ့ စကားလုံးများကြောင့်ရယ်<br>
+			ငါနဲ့နင်နဲ့ ဘာကြောင့်ဝေးခဲ့ရလဲ<br>
+			ငါနဲ့နင်နဲ့ ဘာကြောင့်ဝေးခဲ့ရလဲ<br><br>
+
+
+			အဲ့ဒီညမှာ အသည်းကွဲတာနဲ့စ<br>
+			နောက်ထပ်သူစိမ်းတစ်ယောက်ကို<br>
+			ထပ်ချစ်နိုင်သေးလားလို့မင်းမေးရင်<br>
+			အရာအားလုံးဟာ<br>
+			မင်းနဲ့သက်ဆိုင်တယ်လို့မင်းတွေးရင်<br>
+			ဒါဟာအမှန်တရားပဲလေ<br>
+			အချစ်ရေ မင်းနဲ့မဝေးချင်<br>
+			ငါ့အိမ်မက်တွေဟာ<br>
+			ဟိမဝန္တာ နှင်းတွေထဲကိုရောက်ခဲ့<br>
+			ဒြပ်မဲ့ ကွန်ကရစ်နဲ့လုပ်ထားတဲ့<br>
+			မီးတောင်များပေါ်ရောက်ခဲ့<br>
+			တစ်ဝေါဝေါ ဆင်းနေတဲ့မြစ်ရဲ့<br>
+			မလွန်ဆန်နိုင်ခြင်းပေါ်ရောက်ခဲ့<br>
+			မင်းရဲ့အချစ်ဆိုတဲ့ နာကျင်ရခြင်းအပေါ်<br>
+			တိုက်တွေဆောက်ခဲ့<br>
+			ငါဟာမင်းနဲ့ပတ်သက်ရင်<br>
+			စိတ်ပျော့လွန်းနေလို့တဲ့ ရူးမိုက်စရာ<br>
+			မင်းပန်းပဲခူးခူး လမ်းပဲကူးကူး<br>
+			ဘဝမှာ ဂရုစိုက်ပါ<br>
+			အသည်းကွဲတဲ့ တနင်္လာနေ့တွေဟာ<br>
+			အပတ်တိုင်းမှာ ငါ့ဆီရောက်လာ<br>
+			နိုင်ငံတော်သတင်းစာထဲ ထည့်ရေးရင်<br>
+			မင်းက ထရယ်လောက်မလား<br>
+			ချစ်တယ်<br>
+			တကယ်ဆိုခေါင်းတွေသာငြိမ့်မိသူ<br>
+			မင်း‌မျက်နှာလေး မြင်ရဖို့<br>
+			ကံကြမ္မာကို ဓားနဲ့ကျိမ်းမိသူ<br>
+			ပျော်ရွှင်ခဲ့တယ်မင်းနဲ့ငါ<br>
+			တကယ်ဆို ချစ်ခဲ့တာ မင်းနဲ့ငါ<br>
+			အသည်းတွေကွဲလည်း<br>
+			နောင်တတွေမရခဲ့တာ မင်းနဲ့ငါ<br><br>
+
+
+			ရူးရူးမိုက်မိုက် ဒို့စွဲလမ်းကြတယ်<br>
+			အချစ်တစ်ခုအောက်မှာ ကျရှုံးခဲ့ရတယ်<br>
+			ငါနင့်ကိုဘာကြောင့်များ ချစ်မိသွားလဲ<br>
+			ငါနဲ့နင်နဲ့ဘာကြောင့် ချစ်ခဲ့ကြလဲ<br>
+			အေးတိအေးစက်မင်းအပြုများနောက်ကွယ်<br>
+			မပြောဖြစ်ခဲ့တဲ့ စကားလုံးများကြောင့်ရယ်<br>
+			ငါနဲ့နင်နဲ့ ဘာကြောင့်ဝေးခဲ့ရလဲ<br>
+			ငါနဲ့နင်နဲ့ ဘာကြောင့်ဝေးခဲ့ရလဲ<br><br>
+
+
+			Ohh..Ohh...oh...oh..Oo...oh....<br><br>
+
+
+			ရူးရူးမိုက်မိုက် ဒို့စွဲလမ်းကြတယ်<br>
+			အချစ်တစ်ခုအောက်မှာ ကျရှုံးခဲ့ရတယ်<br>
+			ငါနင့်ကိုဘာကြောင့်များ ချစ်မိသွားလဲ<br>
+			ငါနဲ့နင်နဲ့ဘာကြောင့် ချစ်ခဲ့ကြလဲ<br>
+			အေးတိအေးစက်မင်းအပြုများနောက်ကွယ်<br>
+			မပြောဖြစ်ခဲ့တဲ့ စကားလုံးများကြောင့်ရယ်<br>
+			ငါနဲ့နင်နဲ့ ဘာကြောင့်ဝေးခဲ့ရလဲ<br>
+			ငါနဲ့နင်နဲ့ ဘာကြောင့်ဝေးခဲ့ရလဲ<br><br>
+
+
+			Aww ...aww....aw..<br><br>
+		</p>
+</div>
+</div>
+</div>
+
+</body>
+</html>

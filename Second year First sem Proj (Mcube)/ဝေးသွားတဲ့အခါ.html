@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>ဝေးသွားတဲ့အခါ by Htoo Eain Thin</title>
+	<link rel="stylesheet" type="text/css" href="MusicPlayer.css">
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+
+	<div class="container">
+			<div class="bar">
+			<a href="Jazz.html" >
+					<i class="fa-sharp fa-regular fa-circle-left"></i>
+					</a>
+					<a href="Home.html" >
+					<i class="fa-solid fa-house"></i>
+					</a>
+			</div>
+		<div class="musicBox">
+			<div class="music-player">
+				<div class="solidBar">
+				
+					<div class="circle" onclick="toggleList()">
+					<i class="fa-solid fa-bars"></i>
+					<i class="fa-solid fa-download"></i>
+					</div>
+				
+					<div class="dropdown-content" id="dropdownList" style="display: none;">
+			             
+			                <ul>
+			                   <li><a href="#"> Favourite</a></li>
+			                    <li><a href="#"> Playlists</a></li>
+			                    <li><a href="#">Download</a></li>
+			                </ul>
+            		</div>	
+				
+					
+				</div>
+					<img src="ဝေးသွားတဲ့အခါ.jpg" class="song-img">
+				
+					<h1>ဝေးသွားတဲ့အခါ</h1>
+					<p>Htoo Eain Thin</p>
+
+					<audio  id="song">
+						<source src="ဝေးသွားတဲ့အခါ.mp3" type="audio/mp3">
+					</audio>
+						<div class="time-container">
+						<span class="time" >00:00</span>
+						</div>
+							<input type="range" value="0" id="progress">
+						<div class="controls">
+							<div><i class="fa-solid fa-backward-step"></i>
+							</div>
+							<div onclick="playPause()"><i class="fa-solid fa-play" id="ctrlIcon"></i>
+							</div>
+							<div><i class="fa-solid fa-forward-step"></i>
+							</div>
+						</div>		
+			</div>		
+		</div>
+<script >
+	function toggleList() {
+    var dropdownList = document.getElementById("dropdownList");
+    dropdownList.style.display = (dropdownList.style.display === "none" || dropdownList.style.display === "") ? "block" : "none";
+}
+	let progress = document.getElementById("progress");
+	let song = document.getElementById("song");
+	let ctrlIcon = document.getElementById("ctrlIcon");
+	let lyric =document.querySelector(".lyric");
+	let time =document.querySelector(".time");
+	const letter = document.querySelector('.current');
+
+
+	song.onloadedmetadata = function(){
+		progress.max = song.duration;
+		progress.value = song.currentTime;
+	}
+	function playPause(){
+		if(ctrlIcon.classList.contains("fa-pause")){
+			song.pause();
+			ctrlIcon.classList.remove("fa-pause");
+			ctrlIcon.classList.add("fa-play");
+
+		}
+		else{
+			song.play();
+			ctrlIcon.classList.add("fa-pause");
+			ctrlIcon.classList.remove("fa-play");
+		}
+	}
+
+
+	if(song.played){
+		setInterval(()=>{
+			progress.value = song.currentTime;
+			updateCurrentTime();
+		},500);
+	}
+
+	progress.oninput = function() {
+		
+		song.currentTime = 	progress.value;
+		ctrlIcon.classList.add("fa-pause");
+		ctrlIcon.classList.remove("fa-play");
+		updateCurrentTime();
+	}
+function updateCurrentTime() {
+				let minutes = Math.floor(song.currentTime / 60);
+				let seconds = Math.floor(song.currentTime % 60);
+				time.textContent = padTime(minutes) + ":" + padTime(seconds);
+			}
+
+			function padTime(time) {
+				return time < 10 ? "0" + time : time;
+			}
+	
+
+</script>
+<div></div>
+<div class="lyric1">
+	<div class="lyric-container">
+			<p class="current">	
+				ဝေးသွားတဲ့အခါ<br>
+နှလုံးသားမှာ<br>
+အမြဲတမ်းသတိရနော်<br>
+ကြင်နာခဲ့ဖူးတဲ့ အချိန်ခါများ<br>
+ပြန်လည်ကာ ရယူဖို့ရာ<br>
+မဖြစ်နိုင်တော့တဲ့အခါ<br>
+ရင်ထဲမှာ ပြန်တမ်းတ<br>
+မြင်ယောင်လိုက်ပါ<br>
+ရင်ခုန်သံနွေးထွေးစွာ<br>
+မှေးအိပ်မပျော်တဲ့<br>
+မေ့ စက်ရာထက်မှာ<br>
+ဝေးသွားတဲ့အခါ မင်းအနားမှာ<br>
+မောင့်ရဲ့ချစ်လိပ်ပြာ<br>
+ဟိုသည်ပျံဝဲလို့ နေချင်တာ<br>
+ကြင်နာသူမေ့ရင်ထဲမှာနားခိုခွင့်ပြုပါ<br>
+ဟိုတုန်းက တို့များရဲ့<br>
+ချိုမျက်ဝန်းလွှာ<br>
+နွေအိပ်မက်များထဲမှာ<br>
+တွေ့ကြမယ်နော်<br>
+သီးခြားကမ္ဘာတစ်ခုမှာ<br>
+
+
+ဝေးသွားတဲ့ခါ/ကြင်နာသူတွက်ရင်မှာ<br>
+ကိုနှလုံးသားထဲက/ကိုအမြဲလွမ်းလို့<br>
+ချစ်နှင်းဆီဟာ/နေဦးမယ် အချစ်ရယ်<br>
+ပြန်ဆုံချိန်တိုင် /ကိုယ့်အသည်းမှာ<br>
+လန်းဆန်းမွှေးပျံ့စွာ/ကြင်နာမယ်<br>
+အမြဲသာ/အမြဲသာ<br>
+ဝေးသွားတဲ့အခါ /ပြန်ဆုံချိန်ထိ<br>
+
+ပြန်တွေးတိုင်း /ရင်မှာကိုယ်<br>
+သတိရနေမယ် /အမြဲတမ်းတ<br>
+ကြင်နာသူ/နေဦးမယ်အချစ်ရယ်<br>
+အမှာစကားလေးများ/အိုစကားလေးများ<br>
+ဆိုပါအသည်းရာ/ဆိုပါအသည်းရာ<br>
+
+ဝေးသွားတဲ့အခါ ချစ်သစ္စာ<br>
+စွဲမြဲထားဦးနော်<br>
+အိုမေ/မောင်ရယ် မမေ့နဲ့<br>
+ယုံကြည်ပါ<br>
+ပြန်မဆုံခင်လေးသာ တို့တွေ<br>
+လွမ်းနေကြရတာ<br>
+နောင်တနေ့မှာ ပြန်တွေ့ကာ<br>
+ပျော်ရွှင်ရမှာ<br>
+ကြင်နာသူ မေ့/မောင့်မျက်နှာ<br>
+စွဲလမ်းနေမြဲ မောင့်/မေ့ရဲ့ရင်ထဲမှာ<br>
+</p>
+</div>
+</div>
+</div>
+
+</body>
+</html>

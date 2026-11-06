@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>ကြွေ by Min Si Thu & Mi Phu</title>
+	<link rel="stylesheet" type="text/css" href="MusicPlayer.css">
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+
+	<div class="container">
+			<div class="bar">
+			<a href="All.html" >
+					<i class="fa-sharp fa-regular fa-circle-left"></i>
+					</a>
+					<a href="Home.html" >
+					<i class="fa-solid fa-house"></i>
+					</a>
+			</div>
+		<div class="musicBox">
+			<div class="music-player">
+				<div class="solidBar">
+				
+					<div class="circle" onclick="toggleList()">
+					<i class="fa-solid fa-bars"></i>
+					<i class="fa-solid fa-download"></i>
+					</div>
+				
+					<div class="dropdown-content" id="dropdownList" style="display: none;">
+			             
+			                <ul>
+			                    <li><a href="#"> Favourite</a></li>
+			                    <li><a href="#"> Playlists</a></li>
+			                    <li><a href="#">Download</a></li>
+			                </ul>
+            		</div>
+				
+					
+				</div>
+					<img src="Kyaway.jpg" class="song-img">
+				
+					<h1>ကြွေ</h1>
+					<p>Min Si Thu & Mi Phu</p>
+
+					<audio  id="song">
+						<source src="Kyaway.mp3" type="audio/mp3">
+					</audio>
+						<div class="time-container">
+						<span class="time" >00:00</span>
+						</div>
+							<input type="range" value="0" id="progress">
+						<div class="controls">
+							<div><i class="fa-solid fa-backward-step"></i>
+							</div>
+							<div onclick="playPause()"><i class="fa-solid fa-play" id="ctrlIcon"></i>
+							</div>
+							<div><i class="fa-solid fa-forward-step"></i>
+							</div>
+						</div>		
+			</div>		
+		</div>
+<script >
+	function toggleList() {
+    var dropdownList = document.getElementById("dropdownList");
+    dropdownList.style.display = (dropdownList.style.display === "none" || dropdownList.style.display === "") ? "block" : "none";
+}
+	let progress = document.getElementById("progress");
+	let song = document.getElementById("song");
+	let ctrlIcon = document.getElementById("ctrlIcon");
+	let lyric =document.querySelector(".lyric");
+	let time =document.querySelector(".time");
+	const letter = document.querySelector('.current');
+
+
+	song.onloadedmetadata = function(){
+		progress.max = song.duration;
+		progress.value = song.currentTime;
+	}
+	function playPause(){
+		if(ctrlIcon.classList.contains("fa-pause")){
+			song.pause();
+			ctrlIcon.classList.remove("fa-pause");
+			ctrlIcon.classList.add("fa-play");
+
+		}
+		else{
+			song.play();
+			ctrlIcon.classList.add("fa-pause");
+			ctrlIcon.classList.remove("fa-play");
+		}
+	}
+
+
+	if(song.played){
+		setInterval(()=>{
+			progress.value = song.currentTime;
+			updateCurrentTime();
+		},500);
+	}
+
+	progress.oninput = function() {
+		
+		song.currentTime = 	progress.value;
+		ctrlIcon.classList.add("fa-pause");
+		ctrlIcon.classList.remove("fa-play");
+		updateCurrentTime();
+	}
+function updateCurrentTime() {
+				let minutes = Math.floor(song.currentTime / 60);
+				let seconds = Math.floor(song.currentTime % 60);
+				time.textContent = padTime(minutes) + ":" + padTime(seconds);
+			}
+
+			function padTime(time) {
+				return time < 10 ? "0" + time : time;
+			}
+	
+
+</script>
+<div></div>
+<div class="lyric1">
+	<div class="lyric-container">
+			<p class="current">	
+			တစ်နေကုန်စိတ်ပျက် ငါ့မျက်ရည်စက်လိုက်<br>
+			အလွမ်းနဲ့ ဖို့သတ်ထားတဲ့ ငါ့ရဲ့အသည်းမှာ<br>
+			ဒဏ်ရာတွေသာပြည့်နက်<br>
+			တော်ပြီနောက်ထပ်<br>
+			ငါ့အချစ်ကို အဆက်ဖြတ်<br>
+			အပြုံးနဲ့ရှေ့ဆက်သွားမယ် ငါ့ရဲ့ဘ၀ကို<br>
+			Single လိုသာရှေ့ဆက်<br>
+			တစ်ယောက်ထဲ အခုမှဘဲ<br>
+			ငါအိပ်လိုက်စားလိုက်ရုပ်လဲချောလာတယ်<br>
+			ငါနင်နဲ့ ဝေးကာမှ..<br>
+			ဟိုတုန်းကထက်ပိုပြီးလှလာတယ်<br><br>
+
+			နင်မြင်ရင်ကြွေသွားမယ်<br>
+			နင်မြင်ရင်ကြွေသွားမယ်<br>
+			နင်ထားရစ်ခဲ့တဲ့ပုံတုန်းကြီးငါ့ကို<br><br>
+
+			နင်မြင်ရင်ကြွေသွားမယ်<br>
+			နင်မြင်ရင်ကြွေသွားမယ်<br>
+			နင်ဘေးကစော်ထက်ပိုပြီးလှနေတော့<br>
+			အို ကြွေပြီပေါ့<br>
+			I ‘m sorry.<br>
+			I ‘m sorry.<br>
+			ငါ့မှာ နောက်ထပ်ချစ်ရန်မရှိ<br>
+			I ‘m sorry.<br>
+			I ‘m sorry<br>
+			နေပါနောက်တစ်ယောက်အသစ်ရှာကြည့်<br><br>
+
+			အင်္ကျီအဖြူ စတိုင်ပင်လေးနဲ့ နက်တိုင်စီး<br>
+			ငါ ဗိုလ်ကလေးအရွယ်<br>
+			မင်းနဲ့ဝေးမှ ငါစော်ကြည်သွားတယ်<br>
+			လမ်းတွေ့ရင် လည်ပြန်မငေးနဲ့<br>
+
+
+			မင်းလမ်းခွဲတုန်းက<br>
+			ငါ့မှာအရိုးပေါ်အရေတင်ကာ<br>
+			အချိန်လေးနည်းနည်းပေးလိုက်တော့မှ<br>
+			အသားပါစိုပြေလာ<br>
+			မင်းထားသွားတုန်းက ငါ့မှာ ရူးပြီထင်နေတာ<br>
+			အချိန်လေးနည်းနည်းပေးလိုက်တော့မှ<br>
+			ဘ၀ဟာစိုပြေလာ<br>
+			အခုတော့အေးဆေးပဲ ငါ့ကိုအရူးလုပ်ချင်သူရယ်<br>
+			နင်မရိုတော့မှ ငါ့ရဲ့ဘေးမှာ<br>
+			ဝိုင်းဝိုင်းလည်နေတယ်<br><br>
+
+
+			နင်မြင်ရင်ကြွေသွားမယ်<br>
+			နင်မြင်ရင်ကြွေသွားမယ်<br>
+			ငါဟိုတုန်းကထက်ပိုပြီး၀လာတယ်<br>
+			နင်မြင်ရင်ကြွေသွားမယ်<br>
+			နင်မြင်ရင်ကြွေသွားမယ်<br>
+			နင်ဘေးကလူထက်ပိုပြီးချောနေတော့<br>
+			ကြွေပြီပေါ့<br>
+			I ‘m sorry.<br>
+			I ‘m sorry<br>
+			ငါ့မှာ နောက်ထပ်ချစ်ရန်မရှိ<br>
+			I ‘m sorry.<br>
+			I ‘m sorry<br>
+			နေပါနောက်တစ်ယောက်အသစ်ရှာကြည့်<br><br>
+
+
+			ငါနင်နဲ့ဝေးကာမှ...<br>
+			ဟိုတုန်းကထက်ပိုပြီးလှလာတယ်<br><br>
+
+			အခုတော့အေးဆေးဘဲ ငါ့ကိုအရူးလုပ်ချင်သူရယ်<br>
+			နင်မရှိတော့မှငါ့ရဲ့ဘေးမှာ<br>
+			ဝိုင်းဝိုင်းလည်နေတယ်<br><br>
+
+
+			နင်မြင်ရင်ကြွေသွားမယ်<br>
+			နင်မြင်ရင်ကြွေသွားမယ်<br>
+			နင်ထားရစ်ခဲ့တဲ့ပုံတုန်းကြီးငါ့ကို<br><br>
+
+			နင်မြင်ရင်ကြွေသွားမယ်<br>
+			နင်မြင်ရင်ကြွေသွားမယ်<br>
+			နင်ဘေးကလူထက်ပိုပြီးချောနေတော့<br>
+			ကြွေပြီပေါ့<br>
+			I ‘m sorry.<br>
+			I ‘m sorry<br>
+			ငါ့မှာနောက်ထက်ချစ်ရန်မရှိ<br>
+			I ‘m sorry.<br>
+			I ‘m sorry<br>
+
+			နေပါနောက်တစ်ယောက်အသစ်ရှာကြည့်<br><br>
+
+
+			နင်မြင်ရင်ကြွေသွားမယ်<br>
+			နင်မြင်ရင်ကြွေသွားမယ်<br>
+			နင်ထားရစ်ခဲ့တဲ့ပုံတုန်းကြီးငါ့ကို<br><br>
+
+			နင်မြင်ရင်ကြွေသွားမယ်<br>
+			နင်မြင်ရင်ကြွေသွားမယ်<br>
+			နင်ဘေးကလူထက်ပိုပြီးချောနေတော့<br>
+			ကြွေပြီပေါ့<br>
+		</p>
+</div>
+</div>
+</div>
+
+</body>
+</html>

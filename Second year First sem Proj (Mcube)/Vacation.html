@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Vacation by Y Mask</title>
+	<link rel="stylesheet" type="text/css" href="MusicPlayer.css">
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+
+	<div class="container">
+			<div class="bar">
+			<a href="All.html" >
+					<i class="fa-sharp fa-regular fa-circle-left"></i>
+					</a>
+					<a href="Home.html" >
+					<i class="fa-solid fa-house"></i>
+					</a>
+			</div>
+		<div class="musicBox">
+			<div class="music-player">
+				<div class="solidBar">
+				
+					<div class="circle" onclick="toggleList()">
+					<i class="fa-solid fa-bars"></i>
+					<i class="fa-solid fa-download"></i>
+					</div>
+				
+					<div class="dropdown-content" id="dropdownList" style="display: none;">
+			             
+			                <ul>
+			                   <li><a href="#"> Favourite</a></li>
+			                    <li><a href="#"> Playlists</a></li>
+			                    <li><a href="#">Download</a></li>
+			                </ul>
+            		</div>	
+				
+					
+				</div>
+					<img src="vacation.jpg" class="song-img">
+				
+					<h1>Vacation</h1>
+					<p>Y Mask</p>
+
+					<audio  id="song">
+						<source src="vacation.mp3" type="audio/mp3">
+					</audio>
+						<div class="time-container">
+						<span class="time" >00:00</span>
+						</div>
+							<input type="range" value="0" id="progress">
+						<div class="controls">
+							<div><i class="fa-solid fa-backward-step"></i>
+							</div>
+							<div onclick="playPause()"><i class="fa-solid fa-play" id="ctrlIcon"></i>
+							</div>
+							<div><i class="fa-solid fa-forward-step"></i>
+							</div>
+						</div>		
+			</div>		
+		</div>
+<script >
+	function toggleList() {
+    var dropdownList = document.getElementById("dropdownList");
+    dropdownList.style.display = (dropdownList.style.display === "none" || dropdownList.style.display === "") ? "block" : "none";
+}
+	let progress = document.getElementById("progress");
+	let song = document.getElementById("song");
+	let ctrlIcon = document.getElementById("ctrlIcon");
+	let lyric =document.querySelector(".lyric");
+	let time =document.querySelector(".time");
+	const letter = document.querySelector('.current');
+
+
+	song.onloadedmetadata = function(){
+		progress.max = song.duration;
+		progress.value = song.currentTime;
+	}
+	function playPause(){
+		if(ctrlIcon.classList.contains("fa-pause")){
+			song.pause();
+			ctrlIcon.classList.remove("fa-pause");
+			ctrlIcon.classList.add("fa-play");
+
+		}
+		else{
+			song.play();
+			ctrlIcon.classList.add("fa-pause");
+			ctrlIcon.classList.remove("fa-play");
+		}
+	}
+
+
+	if(song.played){
+		setInterval(()=>{
+			progress.value = song.currentTime;
+			updateCurrentTime();
+		},500);
+	}
+
+	progress.oninput = function() {
+		
+		song.currentTime = 	progress.value;
+		ctrlIcon.classList.add("fa-pause");
+		ctrlIcon.classList.remove("fa-play");
+		updateCurrentTime();
+	}
+function updateCurrentTime() {
+				let minutes = Math.floor(song.currentTime / 60);
+				let seconds = Math.floor(song.currentTime % 60);
+				time.textContent = padTime(minutes) + ":" + padTime(seconds);
+			}
+
+			function padTime(time) {
+				return time < 10 ? "0" + time : time;
+			}
+	
+
+</script>
+<div></div>
+<div class="lyric1">
+	<div class="lyric-container">
+			<p class="current">	
+				Shut your mom and Dad only us kiss your neck<br>
+				Baby အာရုံထွေစရာများတယ့်နေ့တွေခဏလောက်အဆက်သွယ်ဖြတ်<br>
+				မင်းနဲ့... ကမ္ဘာမြေတပတ် ဘသူမှမသိစေနဲ့ ဒီခရီးအတွက်<br>
+				လာကားပေါ်တက် let's go ဘယ်သွားမလဲ အပန်းဖြေမယ့်အရပ်မျိုး<br>
+				ပြင်ဦးလွင် ပြီးတောင်ကြီးကိုဒိုး<br>
+				ကိုအနွေးဓာတ်ပေးဖတ်ထားမှာမို့<br>
+				ညအချမ်းပြေသွားအောင်မီးပုံဖို<br>
+				တောင်တန်းတွေထက်ပိုလှတဲ့အပြုံးနဲ့<br>
+				မင်းရဲ့ နှုတ်ခမ်းပါလေးကိုကိုက်ရင်း<br>
+				မျက်ဝန်းကတဖြေးဖြေးငိုက်စင်း<br>
+				ရင်ခွင်ထဲချော့သိပ်ကာပိုက်ရင်း<br>
+				မနက်ဖြန်ခရီးဆက်ဖို့အတွက် fighting<br>
+				( တိမ်ပင်လယ်ဆီ မင်းနဲ့ခရီးဆက်<br>
+				တောင်ပြာတွေပေါ်တက်ဖြစ်ရင်<br>
+				သာယာနေတဲ့ထင်ရူးတန်းနဲ့<br>
+				ရေပြာအိုင်ကိုမင်းတွေ့ရင်<br>
+				Instagrams မှာ update လုပ်ဖို့ photo သေချာရိုက်ဖို့ပြင်<br>
+				ရင်ခုန်သံတွေမင်းနဲ့ထပ်တူသေချာနေတဲ့လမ်းလေးမြင် <br>
+				ဒီခန္ဓာကိုယ်တစ်ခြမ်းရဲ့ထပ်တူကိုယ်ရှာနေတာမင်းပဲထင်)x2<br><br>♪   ♪ ♪ ♪ ♪<br><br>
+				အိမ်ပြန်ချိန်တွေ No<br>
+				မင်းလဲကိုရဲ့လက်ကိုတွဲထားခိုက်<br>
+				အဆင်ပြေနေပြီမို့<br>
+				မြို့ပြအငွေ့အသက်များစွာဝဲထားလိုက်<br>
+				ဘယ်နှနာရီထိုး ပြီးတော့<br>
+				ဘယ်သူတွေဘယ်လိုဆိုးလဲမသိ<br>
+				Baby တူတူဒိုးမယ် အကြင်နာရေတံခွန်နဲ့သက်တံ့ဆီ<br>
+				မင်းကြိုက်တဲ့သီချင်းတွေညည်း<br>
+				Netflix ခဏဖွင့်အပျင်းပြေကြည့်<br>
+				Grinding my Blue dreams kush baby<br>
+				၁ joint ရှို့ရင်မင်းနဲ့ကိုလွင့်နေပြီ<br>
+				မျောလွင့်ခဲ့မင်းနဲ့ကိုတို့၂ယောက် vacation<br>
+				တိမ်တွေပေါ်ဝဲသွားရင်ရင်ခွင်မှာမှေးနင်<br>
+					အချိန်နာရီစက္ကန့်တွေနာရီတွေမေ့ပြစ်<br>
+				ပင်လယ်ပြင်ခရီးဆက်မယ်တောင်ပြာတွေဝေးရင်<br>
+				Cho: တိမ်ပင်လယ်ဆီ မင်းနဲ့ခရီးဆက်<br>
+				တောင်ပြာတွေပေါ်တက်ဖြစ်ရင်<br>
+				သာယာနေတဲ့ထင်ရူးတန်းနဲ့<br>
+					ရေပြာအိုင်ကိုမင်းတွေ့ရင်<br>
+				Instagrams မှာ update လုပ်ဖို့ photo သေချာရိုက်ဖို့ပြင်<br>
+					ရင်ခုန်သံတွေမင်းနဲ့ထပ်တူသေချာနေတဲ့လမ်းလေးမြင်<br>
+				ဒီခန္ဓာကိုယ်တစ်ခြမ်းရဲ့ထပ်တူကိုယ်ရှာနေတာမင်းပဲထင်<br>
+			</p>
+</div>
+</div>
+</div>
+
+</body>
+</html>

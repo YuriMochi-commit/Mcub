@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+
+	 <meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+	<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="Home.css">
+
+	<title>Song</title>
+    <link rel="stylesheet" type="text/css" href="   https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/script" href="   https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js">
+
+    
+
+</head>
+<body>
+	<div class="container10">
+		<div class="header10">
+			<nav>
+                <div class="logo10" ><abbr title="Myanmar Melody Mingle"><img class= "logoImg10" src="Logo.jpg"></abbr></div>
+                <div class="search-bar">
+                    <input type="text" placeholder="Search...">
+                    <button type="submit"><i class="fas fa-search"></i></button>
+                <label for="btn" class="icon">
+                  <i class="fa-solid fa-bars"></i>
+            </label>
+        <ul>
+          <li><a href="Home.html">Home</a></li>
+            <li>
+               <label for="btn-1" class="show">Song +</label> 
+                <a href="Song.html">Song</a>
+              
+                <ul >
+            
+                    <li><a href="Classic.html">Classic</a></li>
+                    <li><a href="Pop.html">Pop</a></li>
+                    <li><a href="Jazz.html">Jazz</a></li>
+                    <li><a href="Rock.html">Rock</a></li>
+                </ul>
+            </li>
+            
+            <li><a href="Artists.html">Artists</a></li>
+
+            <li><a href="ContantUs.html">Contact Us</a></li>
+             <li><a href="#">About Us</a></li>
+             <li><a href="index.html"><i class="fa-regular fa-user"></i></a></li>
+        </ul>
+        </div>
+    </nav>
+
+<script>
+    $(document).ready(function () {
+    $('.icon').click(function () {
+        $('nav ul').toggleClass('show');
+    });
+
+    $('label.show').click(function () {
+        $(this).siblings('ul').toggleClass('show');
+    });
+});
+
+$('.fade-in').each(function () {
+    if (isElementInViewport(this)) {
+        $(this).addClass('active');
+    }
+});
+
+// The header
+$(document).ready(function () {
+    $('.fa-bars').click(function () {
+        $('nav ul').toggleClass('show');
+    });
+});
+
+</script>
+	</div>
+
+    <div class="middle" id="M1">
+         <div class="container2">
+            <div class="Title">
+            <h2 > New Releses </h2>
+            </div>
+
+
+              
+            <div id="MoveOn" class="item fade-in" >
+            <a href="MoveOn.html"  class="item fade-in"> 
+            <img src="MoveOn.jpg" class="song-img">
+            <p>Move On <br> J-Fire & Yone Yate & Thit Sar</p>
+            </a>
+            </div>
+            
+           
+
+            <div id="တစ်အချိုးတစ်" class="item fade-in">
+            <a href="OneByOne.html" class="item fade-in"> 
+            <img src="OneByOne.jpg" class="song-img">
+            <p>တစ်အချိုးတစ်<br> M Three</p>
+            </a>
+            </div>
+
+            <div id="ကမ္ဘာအဆက်ဆက်" class="item fade-in">
+            <a href="ကမ္ဘာအဆက်ဆက်.html" class="item fade-in"> 
+            <img src="ကမ္ဘာအဆက်ဆက်.jpg" class="song-img">
+            <p>ကမ္ဘာအဆက်ဆက်<br>
+            Bunny Phyo & Amera Phone</p>
+            </a>
+            </div>
+
+            <div id="Boss"class="item fade-in">
+            <a href="Boss.html" class="item fade-in"> 
+            <img src="Boss.jpg" class="song-img">
+            <p>BOSS<br>JAY</p>
+            </a>
+            </div>
+
+            <div class="item fade-in">
+            <a href="နှလုံးသားရဲ့နေရာတိုင်းမှာ.html" class="item fade-in"> 
+            <img src="နှလုံးသားရဲ့နေရာတိုင်းမှာ.jpg" class="song-img">
+            <p>နှလုံးသားရဲ့နေရာတိုင်းမှာ <br> He Lay & Yoon Myat Thu</p>
+            </a>
+            </div>
+   
+
+            <div class="item fade-in" >
+            <a href="Water_Festival.html" class="item fade-in" > 
+            <img id="Water Festival" src="Water Festival.jpg" class="song-img">
+            <p >Water Festival Song</p>
+            </a>
+            </div>
+
+            <div class="item fade-in">
+            <a href="Thadingyut.html" class="item fade-in"> 
+            <img src="Thadingyut.jpg" class="song-img">
+            <p>Thadingyut Song</p>
+            </a>
+            </div>
+
+            <div class="item fade-in">
+            <a href="2024.html" class="item fade-in"> 
+            <img src="2024.jpg" class="song-img">
+            <p>2024 Mix</p>
+            </a>
+            </div>
+
+            <div class="item fade-in">
+            <a href="2023.html" class="item fade-in"> 
+            <img src="2023.jpg" class="song-img">
+            <p>2023 Mix</p>
+            </a>
+            </div>
+
+            <div class="item fade-in">
+            <a href="MusicPlayer.html" class="item fade-in"> 
+            <img src="2022.jpg" class="song-img">
+            <p>2022 Mix</p>
+            </a>
+            </div>
+
+                <div class="item fade-in">
+            <a href="MusicPlayer.html" class="item fade-in"> 
+            <img src="2020.jpg" class="song-img">
+            <p>20s Mix</p>
+            </a>
+            </div>
+
+            <div class="item fade-in">
+            <a href="MusicPlayer.html" class="item fade-in"> 
+            <img src="2010.jpg" class="song-img">
+            <p>10s Mix</p>
+            </a>
+            </div>
+
+              <div class="item fade-in">
+            <a href="MusicPlayer.html" class="item fade-in"> 
+            <img src="2000.jpg" class="song-img">
+            <p>00s Mix</p>
+            </a>
+            </div>
+
+            <div class="item fade-in">
+            <a href="MusicPlayer.html" class="item fade-in"> 
+            <img src="1990.jpg" class="song-img">
+            <p>90s Mix</p>
+            </a>
+            </div>
+
+            <div class="item fade-in">
+            <a href="MusicPlayer.html" class="item fade-in"> 
+            <img src="1980.jpg" class="song-img">
+            <p>80s Mix</p>
+            </a>
+
+            </div>
+ </div>
+
+</div>
+        
+</div>
+  <footer class="py-3 bg-dark">
+                      <ul class="nav justify-content-center border-bottom pb-3 mb-3">
+                        <li class="nav-item">
+                            <a href="Home.html" class="nav-link px-2 text-white">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="Song.html" class="nav-link px-2 text-white">Song</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="Artists.html" class="nav-link px-2 text-white">Artists</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="ContantUs.html" class="nav-link px-2 text-white">Contact Us</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="AboutUs.html" class="nav-link px-2 text-white">About Us</a>
+                        </li>
+                    </ul>
+                      <p class="text-center text-white">© 2024 Company, Inc</p>
+                    </footer>
+
+<script>
+        $(document).ready(function () {
+            // Function to check if the element is in the viewport
+            function isElementInViewport(element) {
+                var rect = element.getBoundingClientRect();
+                return (
+                    rect.top >= 0 &&
+                    rect.left >= 0 &&
+                    rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+                    rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+                );
+            }
+
+            // Function to add active class to elements in viewport
+            function checkElementsVisibility() {
+                $('.fade-in').each(function () {
+                    if (isElementInViewport(this)) {
+                        $(this).addClass('active');
+                    }
+                });
+            }
+
+            // Initial check on page load
+            checkElementsVisibility();
+
+            // Check elements visibility on scroll
+            $(window).on('scroll', function () {
+                checkElementsVisibility();
+            });
+        });
+
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
+
+</body>
+</html>

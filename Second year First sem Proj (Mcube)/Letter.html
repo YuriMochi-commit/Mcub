@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>စာ by စိုးလွင်လွင်</title>
+	<link rel="stylesheet" type="text/css" href="MusicPlayer.css">
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+
+	<div class="container">
+			<div class="bar">
+			<a href="Home.html" >
+					<i class="fa-sharp fa-regular fa-circle-left"></i>
+					</a>
+					<a href="Home.html" >
+					<i class="fa-solid fa-house"></i>
+					</a>
+			</div>
+		<div class="musicBox">
+			<div class="music-player">
+				<div class="solidBar">
+				
+					<div class="circle" onclick="toggleList()">
+					<i class="fa-solid fa-bars"></i>
+					<i class="fa-solid fa-download"></i>
+					</div>
+				
+					<div class="dropdown-content" id="dropdownList" style="display: none;">
+			             
+			                <ul>
+			                   <li><a href="#"> Favourite</a></li>
+			                    <li><a href="#"> Playlists</a></li>
+			                    <li><a href="#">Download</a></li>
+			                </ul>
+            		</div>	
+            	</div>
+					<img src="Letter.jpg" class="song-img">
+				
+					<h1>စာ</h1>
+					<p>စိုးလွင်လွင်</p>
+
+					<audio  id="song">
+						<source src="Letter.mp3" type="audio/mp3">
+					</audio>
+						<div class="time-container">
+						<span class="time" >00:00</span>
+						</div>
+							<input type="range" value="0" id="progress">
+						<div class="controls">
+							<div><i class="fa-solid fa-backward-step"></i>
+							</div>
+							<div onclick="playPause()"><i class="fa-solid fa-play" id="ctrlIcon"></i>
+							</div>
+							<div><i class="fa-solid fa-forward-step"></i>
+							</div>
+						</div>		
+			</div>		
+		</div>
+<script >
+	function toggleList() {
+    var dropdownList = document.getElementById("dropdownList");
+    dropdownList.style.display = (dropdownList.style.display === "none" || dropdownList.style.display === "") ? "block" : "none";
+}
+	let progress = document.getElementById("progress");
+	let song = document.getElementById("song");
+	let ctrlIcon = document.getElementById("ctrlIcon");
+	let lyric =document.querySelector(".lyric");
+	let time =document.querySelector(".time");
+	const letter = document.querySelector('.current');
+
+
+	song.onloadedmetadata = function(){
+		progress.max = song.duration;
+		progress.value = song.currentTime;
+	}
+	function playPause(){
+		if(ctrlIcon.classList.contains("fa-pause")){
+			song.pause();
+			ctrlIcon.classList.remove("fa-pause");
+			ctrlIcon.classList.add("fa-play");
+
+		}
+		else{
+			song.play();
+			ctrlIcon.classList.add("fa-pause");
+			ctrlIcon.classList.remove("fa-play");
+		}
+	}
+
+
+	if(song.played){
+		setInterval(()=>{
+			progress.value = song.currentTime;
+			updateCurrentTime();
+		},500);
+	}
+
+	progress.oninput = function() {
+		
+		song.currentTime = 	progress.value;
+		ctrlIcon.classList.add("fa-pause");
+		ctrlIcon.classList.remove("fa-play");
+		updateCurrentTime();
+	}
+function updateCurrentTime() {
+				let minutes = Math.floor(song.currentTime / 60);
+				let seconds = Math.floor(song.currentTime % 60);
+				time.textContent = padTime(minutes) + ":" + padTime(seconds);
+			}
+
+			function padTime(time) {
+				return time < 10 ? "0" + time : time;
+			}
+	
+
+</script>
+<div></div>
+<div class="lyric1">
+	<div class="lyric-container">
+			<p class="current">	
+			ကိုယ်မြတ်နိုးဖူးသူရဲ့လက်နဲ့<br>
+			ကိုယ်တိုင်ရေးလို့ထားရှာတယ်<br>
+			အရင်တုန်းက ရင်ခုန်ဖူးခဲ့တဲ့<br>
+			စာလုံးဝိုင်းလေးတွေကို<br>
+			ပြန်မြင်လိုက်ရတော့<br>
+			ပြန်လည်တွေ့လိုက်ရတော့<br>
+			ဒီစာကိုဖွင့်လို့ မဖတ်တော့ဘူး<br>
+			ဒီစာကိုဖွင့်လို့ မဖတ်တော့ဘူး<br>
+			ဒီစာကိုဖွင့်လို့
+			မဖတ်ကြည့်တော့ဘူးကွယ်<br><br>
+			♪ ♪ ♪ ♪<br><br>
+
+			ကိုယ်ခံစားပြီးနေရနေ့ရက်တွေဟာ<br>
+			ဟောင်းနွမ်းသွားပြီပဲ<br>
+			ဘယ်သဘောမျိုးအကြံအစည်မျိုးနဲ့<br>
+			ထပ်မံနှိပ်စက်ရပြန်သလဲ<br>
+			ဒီတစ်ခါ အသည်းနှလုံးက<br>
+			မခံနိုင် ငြင်းထုတ်လိုက်တယ်<br>
+			ဒီစာကိုဖွင့်လို့ မဖတ်တော့ဘူး<br>
+			ဒီစာကိုဖွင့်လို့ မဖတ်တော့ဘူး<br>
+			ဒီစာကိုဖွင့်လို့
+						မဖတ်ကြည့်တော့ဘူးကွယ်<br><br>
+
+			
+			
+
+			အနေဝေးပြီးသွေးအေးသွားတယ်<br>
+			မင်း ထင်လိမ့်မယ်<br>
+			တကယ်တော့ကြိုးစားပြီးမေ့ခဲ့ရတယ်<br>
+			ပြန်လည်ပြီးလှည့်မကြည့်ရဲတဲ့<br>
+			တစ်ချိန်က တို့အတိတ်မှာ<br>
+			ဆုံးရှုံးမှုတွေ ပေးထားခဲ့ပြီပဲ<br>
+			ဆုံးရှုံးမှုတွေ မရှိတော့ဘူးမေရယ်<br><br>
+
+			♪ ♪ ♪ ♪ ♪ ♪ ♪ ♪<br><br>
+
+			လိုရာအသုံးချခဲ့ပြီးသွားတော့သူရယ်<br>
+			ရက်စက်လိုက်တာကွယ်<br>
+			ချစ်လွန်းလို့ရင်မှသဘောထားကြီးစွာ<br>
+			အပြုံးနဲ့ထွက်ခွာခဲ့<br>
+			အချိန်ဟာတို့ဘဝကို<br>
+			လိမ္မာစွာကုသပေးခဲ့<br>
+			ဒီစာကိုဖွင့်လို့ မဖတ်တော့ဘူး<br>
+			ဒီစာကိုဖွင့်လို့ မဖတ်တော့ဘူး<br>
+			ဒီစာကိုဖွင့်လို့
+			မဖတ်ကြည့်တော့ဘူးကွယ်<br><br>
+
+			အနေဝေးပြီးသွေးအေးသွားတယ်<br>
+			မင်း ထင်လိမ့်မယ်<br>
+			တကယ်တော့ကြိုးစားပြီးမေ့ခဲ့ရတယ်<br>
+			ပြန်လည်ပြီးလှည့်မကြည့်ရဲတဲ့<br>
+			တစ်ချိန်က တို့အတိတ်မှာ<br>
+			ဆုံးရှုံးမှုတွေ ပေးထားခဲ့ပြီပဲ<br>
+			ဆုံးရှုံးမှုတွေ မရှိတော့ဘူးမေရယ်<br>
+
+			ဒီစာကိုဖွင့်လို့ မဖတ်တော့ဘူး<br>
+			ဒီစာကိုဖွင့်လို့ မဖတ်တော့ဘူး<br>
+			ဒီစာကိုဖွင့်လို့
+			မဖတ်ကြည့်တော့ဘူးကွယ်<br>
+
+			ဒီစာကိုဖွင့်လို့ မဖတ်တော့ဘူး<br>
+			ဒီစာကိုဖွင့်လို့ မဖတ်တော့ဘူး<br>
+			ဒီစာကိုဖွင့်လို့ မဖတ်တော့ဘူး<br>
+			ဒီစာကိုဖွင့်လို့ မဖတ်တော့ဘူး<br>
+			ဒီစာကိုဖွင့်လို့
+			မဖတ်ကြည့်တော့ဘူးကွယ်<br>
+		</p>
+</div>
+</div>
+</div>
+
+</body>
+</html>

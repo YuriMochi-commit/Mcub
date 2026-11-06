@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>ချစ်မိသူကအရှုံး by JCZ feat.Yung hugo</title>
+	<link rel="stylesheet" type="text/css" href="MusicPlayer.css">
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+
+	<div class="container">
+			<div class="bar">
+					<a href="Home.html" >
+					<i class="fa-sharp fa-regular fa-circle-left"></i>
+					</a>
+					<a href="Home.html" >
+					<i class="fa-solid fa-house"></i>
+					</a>
+			
+			</div>
+
+		<div class="musicBox">
+			<div class="music-player">
+				<div class="solidBar">
+				
+					<div class="circle" onclick="toggleList()">
+					<i class="fa-solid fa-bars"></i>
+					<i class="fa-solid fa-download"></i>
+					</div>
+				
+					<div class="dropdown-content" id="dropdownList" style="display: none;">
+			             
+			                <ul>
+			                   <li><a href="#"> Favourite</a></li>
+			                    <li><a href="#"> Playlists</a></li>
+			                    <li><a href="#">Download</a></li>
+			                </ul>
+            		</div>	
+					
+				</div>
+					<img src="ချစ်မိသူကအရှုံး.jpg" class="song-img">
+				
+					<h1>ချစ်မိသူကအရှုံး</h1>
+					<p>JCZ feat.Yung hugo</p>
+
+					<audio  id="song">
+						<source src="ချစ်မိသူကအရှုံး.mp3" type="audio/mp3">
+					</audio>
+						<div class="time-container">
+						<span class="time" >00:00</span>
+						</div>
+							<input type="range" value="0" id="progress">
+						<div class="controls">
+							<div>
+								<i class="fa-solid fa-backward-step"></i>
+							</div>
+							<div onclick="playPause()"><i class="fa-solid fa-play" id="ctrlIcon"></i>
+							</div>
+							<div><i class="fa-solid fa-forward-step"></i>
+							</div>
+						</div>		
+			</div>		
+		</div>
+<script >
+	function toggleList() {
+    var dropdownList = document.getElementById("dropdownList");
+    dropdownList.style.display = (dropdownList.style.display === "none" || dropdownList.style.display === "") ? "block" : "none";
+}
+
+	let progress = document.getElementById("progress");
+	let song = document.getElementById("song");
+	let ctrlIcon = document.getElementById("ctrlIcon");
+	let lyric =document.querySelector(".lyric");
+	let time =document.querySelector(".time");
+	const letter = document.querySelector('.current');
+
+
+	song.onloadedmetadata = function(){
+		progress.max = song.duration;
+		progress.value = song.currentTime;
+	}
+	function playPause(){
+		if(ctrlIcon.classList.contains("fa-pause")){
+			song.pause();
+			ctrlIcon.classList.remove("fa-pause");
+			ctrlIcon.classList.add("fa-play");
+
+		}
+		else{
+			song.play();
+			ctrlIcon.classList.add("fa-pause");
+			ctrlIcon.classList.remove("fa-play");
+		}
+	}
+
+
+	if(song.played){
+		setInterval(()=>{
+			progress.value = song.currentTime;
+			updateCurrentTime();
+		},500);
+	}
+
+	progress.oninput = function() {
+		
+		song.currentTime = 	progress.value;
+		ctrlIcon.classList.add("fa-pause");
+		ctrlIcon.classList.remove("fa-play");
+		updateCurrentTime();
+	}
+function updateCurrentTime() {
+				let minutes = Math.floor(song.currentTime / 60);
+				let seconds = Math.floor(song.currentTime % 60);
+				time.textContent = padTime(minutes) + ":" + padTime(seconds);
+			}
+
+			function padTime(time) {
+				return time < 10 ? "0" + time : time;
+			}
+	
+
+</script>
+<div></div>
+<div class="lyric1">
+	<div class="lyric-container">
+			<p class="current">	
+				အရိုးသားဆုံး ဘေးမှာနေပေးပါ<br>
+				ဒီအပြုံးတွေနဲ့ပဲ ငါအသက်ရှင်နေခဲ့<br>
+				တန်ဖိုးထားပြီး ငါ့ကိုယုံကြည်ပေးပါ<br>
+				ဘယ်သူတွေအနှောင့်အယှက်ပေးနိုင်မှာလဲ<br>
+				ငါလိုအပ်တဲ့ ကမ္ဘာတခုကမင်းပဲ<br>
+				အချိန်တန်လို့ မေ့ပြစ်လို့ထားခဲ့<br>
+				ကြိုတင်ငါသိရက်နဲ့ မတားရဲ<br>
+				ခံနိုင်ရည်မရှိတော့တဲ့ကစားပွဲ<br>
+				အကြိမ်ကြိမ်ငါရှုံးနိမ့်လဲ ကစားခဲ့<br>
+				အရင်လူတွေနဲ့ ငါ့ကိုခြေရာလိုက်တိုင်<br>
+				နင်ဉာဏ်ပြေးသလောက်ငါမလိုက်နိုင်<br>
+				အဆင်ပြေစွာနေခဲ့မယ် I'm fine<br>
+				ဟန်ဆောင်ကာပြုံးပြ but in my mind<br>
+				Maybe we can find a way<br>
+				Memories of thousand days<br>
+				ပြန်တမ်းတလဲ မရနိုင်ဝော့ာ့တဲ့<br>
+				ငါတို့နှစ်‌ေယာက် နေ့စွဲတွေ<br>
+				Now we are in different ways<br>
+				ပြိုင်မျဉ်းနှစ်ခုလို straight ကာနေ<br>
+				ဆုံမှတ်မရှိတော့တဲ့<br>
+				ငါတို့နှစ်ယောက်ရဲ့ချစ်ခြင်းတွေ<br>
+				အရင်ချစ်မိသူက အရှုံး<br>
+				တကယ်ချစ်မိသူက အရှုံး<br>
+				အလျော်အစားကြီးတဲ့ ဒီအရှုံးက<br>
+				ငါ့ရဲ့တစ်ဘဝစာ တစ်ခုလုံး<br>
+				အရင်ချစ်မိသူက အရှုံး<br>
+				တကယ်ချစ်မိသူက အရှုံး<br>
+				အလျော်အစားကြီးတဲ့ ဒီအရှုံးက<br>
+				ငါ့ရဲ့တစ်ဘဝစာ တစ်ခုလုံး<br>
+				သိပ်ချစ်ခဲ့ရတဲ့<br>
+				မိန်းကလေးတစ်ယောက်က<br>
+				တစ်နေ့ကျရင်ထားသွားမှာ<br>
+				ယောင်္ကျားတိုင်း ကြောက်တာ<br>
+				အဲ့ထဲ့မှာ ငါအပါအဝင်<br>
+				လက်ရှိအခြေအနေကိုငါခေါင်းမာပြီး<br>
+				ငါ့ကိုယ်ငါ လိမ်ကြည့်လို့ကောင်းမလား<br>
+				Baby Girl<br>
+				ပြောကြည့် နည်းနည်းလောက်<br>
+				ငါ့ကိုအသက်မဲ့သွားအောင်လုပ်တယ်<br>
+				ဘယ်သူ့အတွက်အဘယ်ကြောင့်<br>
+				သံယောဇဉ်ကြိုးအပြင်<br>
+				ချစ်ခြင်းဆိုတာမရှိတော့ပါ<br>
+				အဲ့ဒီစကားတစ်ခွန်းနဲ့သွေးအေးအေး<br>
+				မင်းငါ့ကို ဒဲ့ခေါက်ထား<br>
+				နာကျင်နေတဲ့ငါ့နှလုံးသားကို နင်မမြင်<br>
+				နှစ်နှစ်ခွဲ ငါးရက်ရှစ်နာရီနဲ့သုံးဆယ့်တစ်<br>
+				ရေခဲအမှတ် သုညကိုရွေ့<br>
+				အတွင်းဒဏ်ရာများကို ငါအရက်နဲ့ဆေး<br>
+				Yeah Trying keeping<br>
+				Move on you<br>
+				But I can't make it<br>
+				Sad but true<br>
+				အကြိမ်ကြိမ်ကြိုးစားလဲ<br>
+				ဘာမှမထူး<br>
+				Yeah I don't wanna blame<br>
+				Cuz I fall for you<br>
+				Maybe we can find a way<br>
+				Memories of thousand days<br>
+				ပြန်တမ်းတလဲ မရနိုင်ဝော့ာ့တဲ့<br>
+				ငါတို့နှစ်‌ေယာက် နေ့စွဲတွေ<br>
+				Now we are in different ways<br>
+				ပြိုင်မျဉ်းနှစ်ခုလို straight ကာနေ<br>
+				ဆုံမှတ်မရှိတော့တဲ့<br>
+				ငါတို့နှစ်ယောက်ရဲ့ချစ်ခြင်းတွေ<br>
+				အရင်ချစ်မိသူက အရှုံး<br>
+				တကယ်ချစ်မိသူက အရှုံး<br>
+				အလျော်အစားကြီးတဲ့ ဒီအရှုံးက<br>
+				ငါ့ရဲ့တစ်ဘဝစာ တစ်ခုလုံး<br>
+				အရင်ချစ်မိသူက အရှုံး<br>
+				တကယ်ချစ်မိသူက အရှုံး<br>
+				အလျော်အစားကြီးတဲ့ ဒီအရှုံးက<br>
+				ငါ့ရဲ့တစ်ဘဝစာ တစ်ခုလုံး<br>
+				ငါ့ရဲ့ Photo Gallery ငါ့တို့ရဲ့ပုံတွေချည်း<br>
+				လွမ်းလို့ပြန်ရှာကြည့်<br>
+				ဖျက်ပလိုက်ပြီ<br>
+				ငါ့မှာ ဂျောင်မှာငိုနေမိ<br>
+				Still can't believe<br>
+				Why you hurt on me?<br>
+				Why you cheat on me<br>
+				တစ်ဖက်သားရဲ့ စိတ်အခြေအနေကိုနင်ပြန်ကာမကြည့်<br>
+				Yeah yeah<br>
+				Love of my life ပါ<br>
+				ဒါကိုသိရက်နဲ့ပျော်ပျော်ကြီးရိုက်ချ<br>
+				ငါတို့ First date ကို<br>
+				ငါပြန်လွမ်းလိုက်တာ<br>
+				အလုံစမ်းချောင်း<br>
+				ကြည့်မြင်တိုင်တစ်ဝိုက်မှာ<br>
+				Maybe we can find a way<br>
+				Memories of thousand days<br>
+				ပြန်တမ်းတလဲ မရနိုင်ဝော့ာ့တဲ့<br>
+				ငါတို့နှစ်‌ေယာက် နေ့စွဲတွေ<br>
+				Now we are in different ways<br>
+				ပြိုင်မျဉ်းနှစ်ခုလို straight ကာနေ<br>
+				ဆုံမှတ်မရှိတော့တဲ့<br>
+				ငါတို့နှစ်ယောက်ရဲ့ချစ်ခြင်းတွေ<br>
+				အရင်ချစ်မိသူက အရှုံး<br>
+				တကယ်ချစ်မိသူက အရှုံး<br>
+				အလျော်အစားကြီးတဲ့ ဒီအရှုံးက<br>
+				ငါ့ရဲ့တစ်ဘဝစာ တစ်ခုလုံး<br>
+				အရင်ချစ်မိသူက အရှုံး<br>
+				တကယ်ချစ်မိသူက အရှုံး<br>
+				အလျော်အစားကြီးတဲ့ ဒီအရှုံးက<br>
+				ငါ့ရဲ့တစ်ဘဝစာ တစ်ခုလုံး<br>
+		</p>
+</div>
+</div>
+</div>
+
+</body>
+</html>

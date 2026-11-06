@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	 <meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+	 <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+   <link href="https://fonts.cdnfonts.com/css/dylova5tuff" rel="stylesheet">
+                      
+	<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="Home.css">
+	
+	<link rel="stylesheet" type="text/css" href="AboutUs.css">
+	  <link rel="stylesheet" type="text/css" href="   https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/script" href="   https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js">
+
+	<title>Artists</title>
+	<style >
+		body{
+			background: black;
+		}
+	</style>
+	
+</head>
+<body>
+<div class="container10">
+		<div class="header10">
+			<nav>
+				<div class="logo10" ><abbr title="Myanmar Melody Mingle"><img class= "logoImg10" src="Logo.jpg"></abbr></div>
+                <div class="search-bar">
+                    <input type="text" placeholder="Search...">
+                    <button type="submit"><i class="fas fa-search"></i></button>
+               <label for="btn" class="icon">
+    		      <i class="fa-solid fa-bars"></i>
+			</label>
+		<ul>
+		  <li><a href="Home.html">Home</a></li>
+            <li>
+               <label for="btn-1" class="show">Song +</label> 
+                <a href="Song.html">Song</a>
+
+                <ul >
+                   
+                    <li><a href="Classic.html">Classic</a></li>
+                    <li><a href="Pop.html">Pop</a></li>
+                    <li><a href="Jazz.html">Jazz</a></li>
+                    <li><a href="Rock.html">Rock</a></li>
+                </ul>
+            </li>
+            
+            <li >
+            	<a href="Artists.html">Artists</a>
+            	
+            </li>
+
+            <li><a href="ContantUs.html">Contact Us</a></li>
+             <li><a href="AboutUs.html">About Us</a></li>
+             <li><a href="index.html"><i class="fa-regular fa-user"></i></a></li>
+		</ul>
+		</div>
+	</nav>
+	</div>
+<script>
+    $(document).ready(function () {
+    $('.icon').click(function () {
+        $('nav ul').toggleClass('show');
+    });
+
+    $('label.show').click(function () {
+        $(this).siblings('ul').toggleClass('show');
+    });
+});
+
+ //For the drop do
+<!-- Add the following script at the end of your body tag -->
+
+    $(document).ready(function () {
+        // Function to check if the element is in the viewport
+        function isElementInViewport(element) {
+            var rect = element.getBoundingClientRect();
+            return (
+                rect.top >= 0 &&
+                rect.left >= 0 &&
+                rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+                rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+            );
+        }
+
+        // Function to add active class to elements in viewport
+        function checkElementsVisibility() {
+            $('.group').each(function () {
+                if (isElementInViewport(this)) {
+                    $(this).addClass('active');
+                }
+            });
+        }
+
+        // Initial check on page load
+        checkElementsVisibility();
+
+        // Check elements visibility on scroll
+        $(window).on('scroll', function () {
+            checkElementsVisibility();
+        });
+    });
+</script>
+
+<div class="content">
+	<div class="left-col">
+		<h1>Myanmar<br>Melody<br>Mingle</h1>
+	</div>
+	<div class="right-col">
+		<!-- <p> Here</p> -->
+	</div>
+	</div>
+
+</div>
+<div class="C1">
+<div class="card C1" style="width: 18rem;">
+  <div class="card-body">
+    <h5 class="card-title">COMPLETELY FREE</h5>
+    <h6 class="card-subtitle mb-2 text-body-secondary">Are you looking for a music platform that offers you the best of music without paying anything? With M Cube, you can access a wide variety of songs, artists and genres, and listen to music without limits.</h6>
+   <!--  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    <a href="#" class="card-link">Card link</a>
+    <a href="#" class="card-link">Another link</a> -->
+  </div>
+</div>
+<div class="card C1" style="width: 18rem;">
+  <div class="card-body">
+    <h5 class="card-title">NO ADS BETWEEN SONGS</h5>
+    <h6 class="card-subtitle mb-2 text-body-secondary">Our main premise has always been to offer our service this way and it will continue to be offered this way.</h6>
+    <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    <a href="#" class="card-link">Card link</a>
+    <a href="#" class="card-link">Another link</a> -->
+  </div>
+</div>
+<div class="card C1" style="width: 18rem;">
+  <div class="card-body">
+    <h5 class="card-title">UNLIMITED PLAYS</h5>
+    <h6 class="card-subtitle mb-2 text-body-secondary">Do you like music? Do you want to enjoy your favorite songs without interruptions or ads? So you need to listen to music without limits so don't wait any longer and try M Cube today.</h6>
+    <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    <a href="#" class="card-link">Card link</a>
+    <a href="#" class="card-link">Another link</a> -->
+  </div>
+</div>
+
+</div>
+<div class="C2">
+ <div class="card C1" style="width: 18rem;">
+  <div class="card-body">
+    <h5 class="card-title">Vission </h5>
+    <h6 class="card-subtitle mb-2 text-body-secondary">Providing a seamless digital platform that connects artists, fans, and industry professionals in an innovation and immersive musical experience.</h6>
+    <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    <a href="#" class="card-link">Card link</a>
+    <a href="#" class="card-link">Another link</a> -->
+  </div>
+</div>
+<div class="card C1" style="width: 18rem;">
+  <div class="card-body" >
+    <h5 class="card-title">Mission</h5>
+    <h6 class="card-subtitle mb-2 text-body-secondary">We aim to curate a diverse rang of music generes, artists, and playlists to cater to varied tastes and preferences, fostering exploration and discovery among our users.</h6>
+    <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    <a href="#" class="card-link">Card link</a>
+    <a href="#" class="card-link">Another link</a> -->
+  </div>
+</div>
+</div><br><br><br>
+<footer class="py-3 bg-dark" style="width:100%;">
+    <div class="container">
+       <ul class="nav justify-content-center border-bottom pb-3 mb-3">
+            <li class="nav-item">
+                <a href="Home.html" class="nav-link px-2 text-white">Home</a>
+            </li>
+            <li class="nav-item">
+                <a href="Song.html" class="nav-link px-2 text-white">Song</a>
+            </li>
+            <li class="nav-item">
+                <a href="#" class="nav-link px-2 text-white">Artists</a>
+            </li>
+            <li class="nav-item">
+                <a href="ContantUs.html" class="nav-link px-2 text-white">Contact Us</a>
+            </li>
+            <li class="nav-item">
+                <a href="#" class="nav-link px-2 text-white">About Us</a>
+            </li>
+        </ul>
+        <p class="text-center text-white">© 2024 Company, Inc</p>
+    </div>
+</footer>
+
+
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
+</body>
+</html>

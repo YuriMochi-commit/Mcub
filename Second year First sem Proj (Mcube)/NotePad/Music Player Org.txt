@@ -1,0 +1,304 @@
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+
+}
+
+body{
+	
+	font-family: 'Poppins', sans-serif;
+	
+	background-color: black;
+	
+}
+.container{
+	width: 100%;
+	height: 100vh;
+	background : black;
+	display: flex;
+	justify-content: space-between;
+	
+
+}  
+.bar{
+	width: 100%;
+	height: 7vh;
+	display: flex;
+	background-color: balck;
+	font-size: 30px;
+	justify-content: flex-end;
+	align-items: center;
+	padding-right: 20px;
+
+}  
+.fa-house{
+	color: #f5d625;
+	font-size: 30px;
+	cursor: pointer;
+}
+.musicBox{
+	width: 50%;
+	text-align: center;
+	background-color: white;
+	display: flex;
+	justify-content: center;
+	position: fixed;
+	 
+	
+	
+}
+.lyric{
+	width:50%;
+	float: right;
+	text-align: center;
+	color: white;
+}
+
+#lyrics h2 {
+  opacity: 0;
+  transition: opacity 0.5s ease; /* Add this line for smooth transitions */
+}
+
+#lyrics .current {
+  opacity: 1;
+}
+.music-player{
+	position: absolute;
+	background: black;
+	width: 500px;
+	padding: 35px 35px ;
+	text-align: center;
+	box-shadow:  0 10px 60px rgba(245, 215, 44, 0.22);
+
+		}
+nav{
+	display:flex;
+	justify-content: space-between;
+	margin-bottom: 30px;
+
+}
+nav .circle{
+	border-radius: 50%;
+	width: 40px;
+	height: 40px;
+	line-height: 40px;
+	background: #f5d625;
+	color: black;
+	box-shadow: 0 5px 10px rgba(245, 215, 44, 0.22); 
+}
+.song-img{
+	width: 220px;
+	border-radius:50%;
+	border-radius: 8px solid #fff;
+	box-shadow: 0 10px 60px rgba(245, 215, 44, 0.22);
+
+}
+.music-player h1{
+	font-size: 20px;
+	font-weight: 400;
+	color: #f5d625;
+	margin-top: 20px;
+}
+
+.music-player p{
+	font-size: 14px;
+	color: #f5d625;
+}
+#progress{
+	-webkit-appearance: none;
+	width: 100%;
+	height: 6px;
+	background: #f5d625;
+	border-radius: 4px;
+	cursor: pointer;
+	margin: 40px 0;
+}
+#progress::-webkit-slider-thumb{
+	-webkit-appearance: none;
+	background:#f5d625 ;
+	width: 30px;
+	height: 30px;
+	border-radius: 50%;
+	border: 8px solid #fff;
+	box-shadow: 0 10px 60px rgba(245, 215, 44, 0.22);
+}
+.controls{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.controls div{
+	width: 60px;
+	height: 60px;
+	margin: 20px;
+	background: #f5d625;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	border-radius: 50%;
+	color: black;
+	box-shadow: 0 10px 60px rgba(245, 215, 44, 0.22);
+	cursor: pointer;
+}
+.controls div:nth-child(2){
+	transform:scale(1.5);
+	background: #f5d625;
+	color: black;
+}
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Music Player Design</title>
+	<link rel="stylesheet" type="text/css" href="MusicPlayer.css">
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+<div class="bar">
+	<i class="fa-solid fa-house"></i>
+</div>
+<div class="container">
+	<div class="musicBox">
+	<div class="music-player">
+		<nav>
+			<div class="circle">
+				<i class="fa-solid fa-angle-left"></i>
+			</div>
+			<div class="circle">
+			<i class="fa-solid fa-bars"></i>
+			</div>
+		</nav>
+		<img src="C:\Users\SU LAE BO BO\Desktop\M Squre\Img\vacation.jpg" class="song-img">
+		<h1>Vacation</h1>
+		<p>Y Mask</p>
+
+		<audio  id="song">
+			<source src="C:\Users\SU LAE BO BO\Desktop\M Squre\audio\vacation.mp3" type="audio/mp3">
+		</audio>
+		<input type="range" value="0" id="progress">
+		<div class="controls">
+			<div><i class="fa-solid fa-backward-step"></i></div>
+			<div onclick="playPause()"><i class="fa-solid fa-play" id="ctrlIcon"></i></div>
+			<div><i class="fa-solid fa-forward-step"></i></i></div>
+	</div>		
+	</div>	
+</div>
+<script >
+	let progress = document.getElementById("progress");
+	let song = document.getElementById("song");
+	let ctrlIcon = document.getElementById("ctrlIcon");
+
+	song.onloadedmetadata = function(){
+		progress.max = song.duration;
+		progress.value = song.currentTime;
+	}
+	function playPause(){
+		if(ctrlIcon.classList.contains("fa-pause")){
+			song.pause();
+			ctrlIcon.classList.remove("fa-pause");
+			ctrlIcon.classList.add("fa-play");
+
+		}
+		else{
+			song.play();
+			ctrlIcon.classList.add("fa-pause");
+			ctrlIcon.classList.remove("fa-play");
+		}
+	}
+
+	if(song.played){
+		setInterval(()=>{
+			progress.value = song.currentTime;
+		},500);
+	}
+
+	progress.oninput = function() {
+		
+		song.currentTime = 	progress.value;
+		ctrlIcon.classList.add("fa-pause");
+		 ctrlIcon.classList.remove("fa-play");
+	}
+
+
+</script>
+<div></div>
+<div class="lyric">
+	<p>
+		Shut your mom and Dad only us kiss your neck<br>
+		Baby အာရုံထွေစရာများတယ့်နေ့တွေခဏလောက်အဆက်သွယ်ဖြတ်<br>
+		မင်းနဲ့... ကမ္ဘာမြေတပတ် ဘသူမှမသိစေနဲ့ ဒီခရီးအတွက်<br>
+		လာကားပေါ်တက် let's go ဘယ်သွားမလဲ အပန်းဖြေမယ့်အရပ်မျိုး<br>
+		ပြင်ဦးလွင် ပြီးတောင်ကြီးကိုဒိုး<br>
+		ကိုအနွေးဓာတ်ပေးဖတ်ထားမှာမို့<br>
+		ညအချမ်းပြေသွားအောင်မီးပုံဖို<br>
+		တောင်တန်းတွေထက်ပိုလှတဲ့အပြုံးနဲ့<br>
+		မင်းရဲ့ နှုတ်ခမ်းပါလေးကိုကိုက်ရင်း<br>
+		မျက်ဝန်းကတဖြေးဖြေးငိုက်စင်း<br>
+		ရင်ခွင်ထဲချော့သိပ်ကာပိုက်ရင်း<br>
+		မနက်ဖြန်ခရီးဆက်ဖို့အတွက် fighting<br>
+		တိမ်ပင်လယ်ဆီ မင်းနဲ့ခရီးဆက်<br>
+		တောင်ပြာတွေပေါ်တက်ဖြစ်ရင်<br>
+		သာယာနေတဲ့ထင်ရူးတန်းနဲ့<br>
+		ရေပြာအိုင်ကိုမင်းတွေ့ရင်<br>
+		Instagrams မှာ update လုပ်ဖို့ photo သေချာရိုက်ဖို့ပြင်<br>
+		ရင်ခုန်သံတွေမင်းနဲ့ထပ်တူသေချာနေတဲ့လမ်းလေးမြင်<br>
+		ဒီခန္ဓာကိုယ်တစ်ခြမ်းရဲ့ထပ်တူကိုယ်ရှာနေတာမင်းပဲထင်<br>
+		အိမ်ပြန်ချိန်တွေ No<br>
+		မင်းလဲကိုရဲ့လက်ကိုတွဲထားခိုက်<br>
+		အဆင်ပြေနေပြီမို့<br>
+		မြို့ပြအငွေ့အသက်များစွာဝဲထားလိုက်<br>
+		ဘယ်နှနာရီထိုး ပြီးတော့<br>
+		ဘယ်သူတွေဘယ်လိုဆိုးလဲမသိ<br>
+		Baby တူတူဒိုးမယ် အကြင်နာရေတံခွန်နဲ့သက်တံ့ဆီ<br>
+		မင်းကြိုက်တဲ့သီချင်းတွေညည်း<br>
+		Netflix ခဏဖွင့်အပျင်းပြေကြည့်<br>
+		Grinding my Blue dreams kush baby<br>
+		၁ joint ရှို့ရင်မင်းနဲ့ကိုလွင့်နေပြီ<br>
+		မျောလွင့်ခဲ့မင်းနဲ့ကိုတို့၂ယောက် vacation<br>
+		တိမ်တွေပေါ်ဝဲသွားရင်ရင်ခွင်မှာမှေးနင်<br>
+			အချိန်နာရီစက္ကန့်တွေနာရီတွေမေ့ပြစ်<br>
+		ပင်လယ်ပြင်ခရီးဆက်မယ်တောင်ပြာတွေဝေးရင်<br>
+		Cho: တိမ်ပင်လယ်ဆီ မင်းနဲ့ခရီးဆက်<br>
+		တောင်ပြာတွေပေါ်တက်ဖြစ်ရင်<br>
+		သာယာနေတဲ့ထင်ရူးတန်းနဲ့<br>
+			ရေပြာအိုင်ကိုမင်းတွေ့ရင်<br>
+		Instagrams မှာ update လုပ်ဖို့ photo သေချာရိုက်ဖို့ပြင်<br>
+			ရင်ခုန်သံတွေမင်းနဲ့ထပ်တူသေချာနေတဲ့လမ်းလေးမြင်<br>
+		ဒီခန္ဓာကိုယ်တစ်ခြမ်းရဲ့ထပ်တူကိုယ်ရှာနေတာမင်းပဲထင်<br>
+	</p>
+</div>
+</div>
+<script>
+function updateTimer(data) {
+  // ... (your existing code)
+
+  while (true) {
+    // ... (your existing code)
+
+    if (time >= timeList[counter]) {
+      if (counter <= timeList.length) {
+        counter++;
+        $('#lyrics h2').removeClass('current'); // Remove "current" class from all lyrics
+        $('#lyrics h2').eq(counter).addClass('current'); // Add "current" class to the current lyric
+      }
+      next();
+    } else if (time < timeList[counter - 1]) {
+      counter--;
+      $('#lyrics h2').removeClass('current');
+      $('#lyrics h2').eq(counter).addClass('current');
+      previous();
+    } else {
+      if (play == 1 && !audio.paused && !audio.ended) centerize();
+      break;
+    }
+  }
+}
+</script>
+</body>
+</html>

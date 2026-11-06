@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>I'm Just Sayin by Yair Yaint Aung</title>
+	<link rel="stylesheet" type="text/css" href="MusicPlayer.css">
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+
+	<div class="container">
+			<div class="bar">
+			<a href="Home.html" >
+					<i class="fa-sharp fa-regular fa-circle-left"></i>
+					</a>
+					<a href="Home.html" >
+					<i class="fa-solid fa-house"></i>
+					</a>
+			</div>
+		<div class="musicBox">
+			<div class="music-player">
+				<div class="solidBar">
+				
+					<div class="circle" onclick="toggleList()">
+					<i class="fa-solid fa-bars"></i>
+					<i class="fa-solid fa-download"></i>
+					</div>
+				
+					<div class="dropdown-content" id="dropdownList" style="display: none;">
+			             
+			                <ul>
+			                   <li><a href="#"> Favourite</a></li>
+			                    <li><a href="#"> Playlists</a></li>
+			                    <li><a href="#">Download</a></li>
+			                </ul>
+            		</div>	
+				</div>
+					<img src="I'm Just Saying.jpg" class="song-img">
+				
+					<h1>I'm Just Sayin</h1>
+					<p>Yair Yaint Aung</p>
+
+					<audio  id="song">
+						<source src="I_m Just Sayin.mp3" type="audio/mp3">
+					</audio>
+						<div class="time-container">
+						<span class="time" >00:00</span>
+						</div>
+							<input type="range" value="0" id="progress">
+						<div class="controls">
+							<div><i class="fa-solid fa-backward-step"></i>
+							</div>
+							<div onclick="playPause()"><i class="fa-solid fa-play" id="ctrlIcon"></i>
+							</div>
+							<div><i class="fa-solid fa-forward-step"></i>
+							</div>
+						</div>		
+			</div>		
+		</div>
+<script >
+	function toggleList() {
+    var dropdownList = document.getElementById("dropdownList");
+    dropdownList.style.display = (dropdownList.style.display === "none" || dropdownList.style.display === "") ? "block" : "none";
+}
+	let progress = document.getElementById("progress");
+	let song = document.getElementById("song");
+	let ctrlIcon = document.getElementById("ctrlIcon");
+	let lyric =document.querySelector(".lyric");
+	let time =document.querySelector(".time");
+	const letter = document.querySelector('.current');
+
+
+	song.onloadedmetadata = function(){
+		progress.max = song.duration;
+		progress.value = song.currentTime;
+	}
+	function playPause(){
+		if(ctrlIcon.classList.contains("fa-pause")){
+			song.pause();
+			ctrlIcon.classList.remove("fa-pause");
+			ctrlIcon.classList.add("fa-play");
+
+		}
+		else{
+			song.play();
+			ctrlIcon.classList.add("fa-pause");
+			ctrlIcon.classList.remove("fa-play");
+		}
+	}
+
+
+	if(song.played){
+		setInterval(()=>{
+			progress.value = song.currentTime;
+			updateCurrentTime();
+		},500);
+	}
+
+	progress.oninput = function() {
+		
+		song.currentTime = 	progress.value;
+		ctrlIcon.classList.add("fa-pause");
+		ctrlIcon.classList.remove("fa-play");
+		updateCurrentTime();
+	}
+function updateCurrentTime() {
+				let minutes = Math.floor(song.currentTime / 60);
+				let seconds = Math.floor(song.currentTime % 60);
+				time.textContent = padTime(minutes) + ":" + padTime(seconds);
+			}
+
+			function padTime(time) {
+				return time < 10 ? "0" + time : time;
+			}
+	
+
+</script>
+<div></div>
+<div class="lyric1">
+	<div class="lyric-container">
+			<p class="current">	
+			မနက်ခင်းတစ်ခုဟာ<br>
+			မနေ့ကလိုမရှိတော့ဘူး<br>
+			ငါပို့တဲ့စာတွေလည်း<br>
+			နင်မကြည့်တော့ဘူး<br>
+			ပတ်သက်မှုတွေအားလုံးရဲ့အဝေး<br>
+			မင်းဘယ်တွေရောက်နေလဲတောင်<br>
+			ငါမသိတော့ဘူး<br>
+			There you go<br>
+			You trynna leave me<br>
+			နင်ဟာပေါ့ပေါ့ပါးပါးလေးပဲ<br>
+			ဒီမှာကျတော့ it ain’t easy<br>
+			ကုမရပါ ဆေးမရှိ<br>
+			Damn!<br>
+			အခုခဏလာကြည့်ကြည့်<br>
+			ဒီကောင်ရူးသွားတာ အကြီးကြီး<br>
+			Girl! You know what it is…<br>
+			ဒါဟာ၆နှစ်အတွင်း<br>
+			ငါပြန်ရေးဖြစ်ခဲ့တဲ့ သီချင်းအသစ်<br>
+			Damn! Damn!! What’d I miss?<br>
+			မင်းမွေးထားတဲ့ကြောင်တွေလောက်တောင်<br>
+			ငါ့အပေါ်မှာ မင်းမချစ်<br><br>
+
+			ငါစိတ်မဆိုးဘူး အသည်းယားတာ<br>
+			ငါ့ကိုစောက်ဖတ်မလုပ်တာလေးကို<br>
+			မူးယစ်ဆေးလို စွဲသွားတာ…<br>
+			ငါ့ရဲ့အသည်းကို ခွဲသွားပါ<br>
+			ငါ့ရဲ့အသည်းကိုခွဲသွားပါ<br>
+			Lunch break မှာနို့တစ်ခွက်နဲ့ cornflakes<br>
+			စာမဖတ်တာ ၃ရက်ပြည့်တဲ့နေ့<br>
+			အခန်းထဲမှာ ပက်လက်ငါလူးလိမ့်<br>
+			အနာမကျက်<br>
+			ဆေးမတွေ့<br>
+			ငါညာမနေပါဘူး<br>
+			တစ်ခါတစ်လေမှာ<br>
+			ထူးခြားတဲ့ ဥပေက္ခာနေ့များ<br>
+			ငါအသက်ရှူခဲ့တာ နှစ်၃၀<br>
+			နင့်ကို ဘာတွေငါရူးသွားလဲ<br>
+			အခုထိ ငါအဖြေမရ<br>
+			မင်းအသိပါ<br>
+			ဘယ်တော့မှငါ နောက်မဆုတ်ခဲ့<br>
+			ဒီပါးပြင်လေးပေါ်<br>
+			မျက်ရည်ကျမှာ ကြောက်လို့<br>
+			အဓိကက မောင်းမထုတ်နဲ့<br>
+			ငါ မင်းရှေ့မှာ ဒူးထောက်တယ်<br>
+			လက်မြှောက် ခေါင်းငုံ့<br><br>
+
+			ငါ စိတ်မဆိုးဘူး အသည်းယားတာ<br>
+			ငါ့ကို $ဖတ်မလုပ်တာလေးကို<br>
+			တလောကလုံးနဲ့ လဲထားတာ<br>
+			ငါ့ရ့အသည်းကို ခွဲသွားပါ<br>
+			ဘယ်လိုမျိုး အငြိုးတွေကြောင့်<br>
+			၃၅မှာ မိုးတွေသည်းရတာ..<br>
+			Damn!!<br>
+			ဘယ်လိုမျိုး အငြိုးတွေကြောင့်<br>
+			၃၅မှာ မိုးတွေသည်းရတာ..<br>
+			ဘယ်လိုမျိုး အငြိုးတွေကြောင့်
+			…<br><br>
+
+			ငါအိပ်တော့မယ် မစဉ်းစားချင်<br>
+			မင်းသိပ်ချစ်ရတဲ့ မင်း………..<br>
+			ငါ့ကို တက်ပီးနင်းသွားပါစေ<br>
+			မီးကိုညှိ smoking weed<br>
+			မင်းကိုချစ်တဲ့အကြောင်းတွေ<br>
+			ရှင်းပြချင်<br>
+			ဖုန်းတွေပြောရင်း မိုးလင်း<br>
+			ငါ့ကိုပြန်ပီး ချစ်မယ်လို့<br>
+			ငါထင်ထားသမျှဟာ အကုန်လွဲ<br>
+			ငါသိသိကြီး ရှေ့တိုးရင်း<br>
+			စောက်ရူးတစ်ယောက် ဘာလုပ်မလဲ<br>
+			နင်မှ ငါ့ကိုမယုံပဲ<br>
+			ငါထင်ထားသမျှဟာ အကုန်လွဲ<br>
+			Yea, you did it all into slowmo<br>
+			But I can’t even lie<br>
+			ရောင်စုံပုံမှန်ပြောင်းလဲနေတဲ့<br>
+			လောကကြီးက အမျိုးမျိုး<br>
+			နောက်ထပ် ပိုပီးမတွေးချင်<br>
+			အခုထပ် ပိုပီးတော့လဲ<br>
+			ငါ မင်းနဲ့ မဝေးချင်<br>
+			Memories are killin’ me<br>
+			In my brand new ride<br>
+			Yea, we smoke we chillin’<br>
+			ငယ်ငယ်လှလှလေးကို ငါဒုက္ခတွေမပေးချင်<br>
+			အပိုင်သိမ်းထားလိုက်ချင်တယ်<br>
+			I’m just sayin’ …<br>
+			Nike ဦးထုပ်လေးလည်း<br>
+			ငါ လုံးဝပြန်မပေးချင်<br>
+			But girl I’m just sayin’ ….<br>
+			Peace ✌️<br>
+
+		</p>
+</div>
+</div>
+</div>
+
+</body>
+</html>

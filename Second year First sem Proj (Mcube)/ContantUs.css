@@ -1,0 +1,150 @@
+
+
+@keyframes color{
+    0%{
+        background-position: 0 50%;
+    }
+     50%{
+        background-position: 100% 50%;
+    }
+     100%{
+        background-position: 0 50%;
+    }
+}
+
+
+.container4{
+  height: 100vh;
+
+}
+
+
+.upper-container{
+  padding: 10px;
+  margin: auto;
+}
+
+.upper-container h1 {
+  font-size: 2rem;
+  font-weight: 600;
+  margin-top: 3rem;
+
+  text-align: center;
+}
+.upper-container p{
+  text-align: center;
+}
+
+.error-text {
+  color: #b40e0e;
+}
+
+.contact-container {
+  max-width: 960px;
+  margin: auto;
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  background-color: rgb(198, 210, 221);
+  box-shadow: 0 0 1rem hsla(0 0 0 / 16%);
+  border-radius: 0.5rem;
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+
+.form-container {
+  padding: 20px;
+
+
+}
+
+.contact-form {
+  display: grid;
+  row-gap: 1rem; 
+  margin-top: 20px;
+
+}
+
+.contact-form input {
+  border: none;
+  width: 100%;
+  outline: none;
+  background: #fff;
+  padding: 10px;
+  font-size: 0.9rem;
+  border-radius: 0.4rem;
+  box-shadow: #2e2f36;
+  margin: 3px;
+  
+
+}
+.contact-form textarea {
+  width: 100%;
+  border: none;
+  outline: none;
+  background: #fff;
+  padding: 10px;
+  font-size: 0.9rem;
+  border-radius: 0.4rem;
+  box-shadow: #2e2f36;
+  margin: 3px;
+  resize: none;
+  height: 200px;
+}
+
+
+.form-grp{
+  margin-bottom: 20px;
+}
+
+.contact-form .button {
+  color: white;
+  border-radius: 0.4rem;
+  padding: 10px;
+  border: 2px solid black;
+  outline: none;
+  background: black;
+  font-size: 1rem;
+  font-weight: 500;
+  text-transform: none;
+  cursor: pointer;
+  width: 100%;
+}
+.contact-form .button:hover {
+  background: white;
+  transition: 0.3s all linear;
+  color: black;
+}
+
+
+.map iframe {
+  width: 100%;
+  height: 100%;
+}
+
+.footer-container{
+  padding: 10px;
+  background: linear-gradient(45deg,#787d78,#3a3d3a,#0a260a);
+
+}
+.footer-container p {
+  margin: 0;
+  color: white;
+  text-align: center;
+  font-size: 14px; /* Adjust font size as needed */
+}
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>တစ်အချိုးတစ် by M Three</title>
+	<link rel="stylesheet" type="text/css" href="MusicPlayer.css">
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+
+	<div class="container">
+			<div class="bar">
+			<a href="Song.html#တစ်အချိုးတစ်" >
+					<i class="fa-sharp fa-regular fa-circle-left"></i>
+					</a>
+					<a href="Home.html" >
+					<i class="fa-solid fa-house"></i>
+					</a>
+			</div>
+		<div class="musicBox">
+			<div class="music-player">
+				<div class="solidBar">
+				
+					<div class="circle" onclick="toggleList()">
+					<i class="fa-solid fa-bars"></i>
+					<i class="fa-solid fa-download"></i>
+					</div>
+				
+					<div class="dropdown-content" id="dropdownList" style="display: none;">
+			             
+			                <ul>
+			                   <li><a href="#"> Favourite</a></li>
+			                    <li><a href="#"> Playlists</a></li>
+			                    <li><a href="#">Download</a></li>
+			                </ul>
+            		</div>	
+            	</div>
+					<img src="OneByOne.jpg" class="song-img">
+				
+					<h1>တစ်အချိုးတစ်</h1>
+					<p>M Three</p>
+
+					<audio  id="song">
+						<source src="OneByOne.mp3" type="audio/mp3">
+					</audio>
+						<div class="time-container">
+						<span class="time" >00:00</span>
+						</div>
+							<input type="range" value="0" id="progress">
+						<div class="controls">
+							<a href="MoveOn.html">
+							<div><i class="fa-solid fa-backward-step"></i>
+							</div>
+						</a>
+							<div onclick="playPause()"><i class="fa-solid fa-play" id="ctrlIcon"></i>
+							</div>
+							<a href="ကမ္ဘာအဆက်ဆက်.html">
+							<div><i class="fa-solid fa-forward-step"></i>
+							</div>
+						</a>
+						</div>		
+			</div>		
+		</div>
+<script >
+
+	function toggleList() {
+    var dropdownList = document.getElementById("dropdownList");
+    dropdownList.style.display = (dropdownList.style.display === "none" || dropdownList.style.display === "") ? "block" : "none";
+}
+	let progress = document.getElementById("progress");
+	let song = document.getElementById("song");
+	let ctrlIcon = document.getElementById("ctrlIcon");
+	let lyric =document.querySelector(".lyric");
+	let time =document.querySelector(".time");
+	const letter = document.querySelector('.current');
+
+
+	song.onloadedmetadata = function(){
+		progress.max = song.duration;
+		progress.value = song.currentTime;
+	}
+	function playPause(){
+		if(ctrlIcon.classList.contains("fa-pause")){
+			song.pause();
+			ctrlIcon.classList.remove("fa-pause");
+			ctrlIcon.classList.add("fa-play");
+
+		}
+		else{
+			song.play();
+			ctrlIcon.classList.add("fa-pause");
+			ctrlIcon.classList.remove("fa-play");
+		}
+	}
+
+
+	if(song.played){
+		setInterval(()=>{
+			progress.value = song.currentTime;
+			updateCurrentTime();
+		},500);
+	}
+
+	progress.oninput = function() {
+		
+		song.currentTime = 	progress.value;
+		ctrlIcon.classList.add("fa-pause");
+		ctrlIcon.classList.remove("fa-play");
+		updateCurrentTime();
+	}
+function updateCurrentTime() {
+				let minutes = Math.floor(song.currentTime / 60);
+				let seconds = Math.floor(song.currentTime % 60);
+				time.textContent = padTime(minutes) + ":" + padTime(seconds);
+			}
+
+			function padTime(time) {
+				return time < 10 ? "0" + time : time;
+			}
+	
+
+</script>
+<div></div>
+<div class="lyric1">
+	<div class="lyric-container">
+			<p class="current">	
+				အိပ်မက်ထဲထိကိုမင်းလာ နှောင့်ယှက်တဲ့ညက<br>
+ပျော်မြူးပြီးခြေထောက်လက် တွေမြောက်တတ်ခဲ့ငါ့ဘဝ<br>
+ဒီလိုနဲ့နိုးထလာ နောက်မနက်ရဲ့အစက<br>
+ဘေးနားမှာ မင်းမရှိ တော့ခြောက်ကပ်တယ်မလှပ<br>
+မင်းအိမ်ဘက်လမ်း တွေရောက်တတ်တယ် ခနခန<br>
+မင်းကတော့ အဖက်မလုပ်ပါဘယ်လောက် ကပ်တွယ်ပြပြ<br>
+မင်းကို တွေ့တိုင်းရင်ခုန်သံကယောက်ကယက်နဲ့ကြွရွ<br>
+မျက်စောင်း လေးတစ်ချက် ရင် တွေပေါက်ထွက်တယ် အအ<br>
+မင်းကို ခေါ်ပြီးသွားမယ် အဝေးတိမ်လွှာများထိ<br>
+တစ်ခါတစ် လေ တို့စိတ်တွေ မှေးမှိန်ကာသွား၏<br>
+သူ့တွက်ကို့ရဲ့အချစ် အလေးချိန်ကအများကြီး<br>
+ကို့အချစ်ကိုသူ့ဘက်က ဈေးနှိမ်မှာလားမသိ<br>
+တစ်ကယ်ချစ်လား မေးတိုင်း အပြေးကျိန်ကာပြမည့<br>
+လူတစ် ယောက်ပါတို့စိတ်မှာ အတွေးအလိမ်အညာများမရှိ<br>
+မင်းနဲ့နှစ် ယောက်တူတူ ခွေးလိမ္မာကားကြည့်<br>
+အဲ့လိုလေးစိတ်ကူးပြီး တစ်နေ့အကြိမ်တစ်ရာသွားဖြီး<br>
+ဂုဏ်စည်းစိမ်ချမ်းသာ တဲ့ သူဌေးအိမ်က သားသမီး<br>
+မဟုတ် ပေမယ့်မင်းဘဝအတွက် သေးသိမ်စရာများမရှိ<br>
+ရူးရူးမူးမူး ချစ်မိရုံပါပဲတဲ့ <br>
+နှလုံးသား လေးကတိုးတိုး ပြောလာတယ် <br>
+စဉ်းစဉ်းစားစားဆုံးဖြတ် အနိုင်ယူလဲတဲ့<br>
+ဦး နှောက်ကတော့လျှာက် ‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌လျှောက်လျှောက်ပြောနေတယ်<br>
+နှလုံးသားစကားပဲ နားထဲသွင်း အပြုံးများကြားထဲ အားခဲရင်း<br>
+သုံးစားမရတဲ့ နွားလှည်းတစ်စင်းလိုပဲ<br>
+ဦး နှောက်စကားလဲ နားထဲမသွင်း တုံးအောက်ပြားတဲ့ဖားပဲဖြစ်<br>
+အဆုံးရောက်သွားတဲ့ ငါ့ရဲ့အဖြစ်ပါပဲ<br>
+အခုလိုမင်းအတွက်ပဲ ရည်ရွယ်ပြီးဆိုနေတဲ့ Rapဟာ<br>
+ရင်ထဲကအတိုင်းပါပဲ အပိုတွေလဲ မဆက်ပါ<br>
+မင်းကိုများ တွေ့ဖြစ်ရင် စိုပြေတဲ့ရက်ပါ<br>
+ချိုနေတဲ့မျက်နှာ ဟာကိုလိုနေတဲ့ ဓါတ်စာ<br>
+မင်းနဲ့မတွေ့ခင် တို့ဘဝဟာ တစ်ကိုယ်ရည်ပဲ လက်ဗလာ<br>
+သိပ်ချောပြီး သိပ်လှတဲ့အပျိုတွေလဲ မမက်ပါ<br>
+ကို့ကိုယ်မရလို့ အဲ့လိုအပျိုတွေငိုပါစေ ထည့်မတွက်ပါ<br>
+အထာကျကျ ကြည့်လိုက်စမ်း ဘယ်လိုနေလဲ အသက်ရာ<br>
+ကို့အချစ်တွေ မင်းလေးဆီ တရိုတသေနဲ့ကပ်ကာ<br>
+ကို့ဘဝမှာ မင်းကသာ ဗိုလ် တွေဆွဲလျက်ပါ<br>
+မချစ်နိုင်ပါဘူးတဲ့<br>
+နောက်ဆုံးထိုအ ဖြေပဲထွက်လာ<br>
+ထိုအဖြေဟာ ကို့ဘဝကို ပြိုစေတဲ့လက္ခဏာ<br>
+အဲ့ဒီ နောက် တော့ ကိုကြေကွဲတတ်လာ<br>
+နှလုံးသား လေးမOk မှိုတွေစွဲကပ်လာ<br>
+အချစ် ပေးတိုင်းအချစ်ပြန်မရတာ ဂြိုလ်မွှေတဲ့ပြဿနာ<br>
+အမြဲတမ်းထိုင် ညဉ်းဖြစ်တယ် ခိုတွေနဲ့ဖက်ကာ<br>
+ရူးရူးမူးမူး ချစ်မိရုံပါပဲတဲ့ <br>
+နှလုံးသား လေးကတိုးတိုး ပြောလာတယ် <br>
+စဉ်းစဉ်းစားစားဆုံးဖြတ် အနိုင်ယူလဲတဲ့<br>
+ဦး နှောက်ကတော့လျှာက် ‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌လျှောက်လျှောက်ပြောနေတယ်<br>
+နှလုံးသားစကားပဲ နားထဲသွင်း အပြုံးများကြားထဲ အားခဲရင်း<br>
+သုံးစားမရတဲ့ နွားလှည်းတစ်စင်းလိုပဲ<br>
+ဦး နှောက်စကားလဲ နားထဲမသွင်း တုံးအောက်ပြားတဲ့ဖားပဲဖြစ်<br>
+အဆုံးရောက်သွားတဲ့ ငါ့ရဲ့အဖြစ်ပါပဲ<br>
+		</p>
+</div>
+</div>
+</div>
+
+</body>
+</html>

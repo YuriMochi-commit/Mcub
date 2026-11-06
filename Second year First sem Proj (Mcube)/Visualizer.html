@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>အိမ်မက်ရဲ့အသက် by Bunny phyoe ft.Bobby Soxer</title>
+	<link rel="stylesheet" type="text/css" href="MusicPlayer.css">
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+
+	<div class="container">
+			<div class="bar">
+			<a href="All.html" >
+					<i class="fa-sharp fa-regular fa-circle-left"></i>
+					</a>
+					<a href="Home.html" >
+					<i class="fa-solid fa-house"></i>
+					</a>
+			</div>
+		<div class="musicBox">
+			<div class="music-player">
+				<div class="solidBar">
+				<div class="circle" onclick="toggleList()">
+					<i class="fa-solid fa-bars"></i>
+					<i class="fa-solid fa-download"></i>
+					</div>
+				
+					<div class="dropdown-content" id="dropdownList" style="display: none;">
+			             
+			                <ul>
+			                   <li><a href="#"> Favourite</a></li>
+			                    <li><a href="#"> Playlists</a></li>
+			                    <li><a href="#">Download</a></li>
+			                </ul>
+            		</div>	
+				
+					
+				</div>
+					<img src="Visualizer.jpg" class="song-img">
+				
+					<h1>အိမ်မက်ရဲ့အသက်</h1>
+					<p>Bunny phyoe ft.Bobby Soxer</p>
+
+					<audio  id="song">
+						<source src="Visualizer.mp3" type="audio/mp3">
+					</audio>
+						<div class="time-container">
+						<span class="time" >00:00</span>
+						</div>
+							<input type="range" value="0" id="progress">
+						<div class="controls">
+							<div><i class="fa-solid fa-backward-step"></i>
+							</div>
+							<div onclick="playPause()"><i class="fa-solid fa-play" id="ctrlIcon"></i>
+							</div>
+							<div><i class="fa-solid fa-forward-step"></i>
+							</div>
+						</div>		
+			</div>		
+		</div>
+<script >
+	function toggleList() {
+    var dropdownList = document.getElementById("dropdownList");
+    dropdownList.style.display = (dropdownList.style.display === "none" || dropdownList.style.display === "") ? "block" : "none";
+}
+	let progress = document.getElementById("progress");
+	let song = document.getElementById("song");
+	let ctrlIcon = document.getElementById("ctrlIcon");
+	let lyric =document.querySelector(".lyric");
+	let time =document.querySelector(".time");
+	const letter = document.querySelector('.current');
+
+
+	song.onloadedmetadata = function(){
+		progress.max = song.duration;
+		progress.value = song.currentTime;
+	}
+	function playPause(){
+		if(ctrlIcon.classList.contains("fa-pause")){
+			song.pause();
+			ctrlIcon.classList.remove("fa-pause");
+			ctrlIcon.classList.add("fa-play");
+
+		}
+		else{
+			song.play();
+			ctrlIcon.classList.add("fa-pause");
+			ctrlIcon.classList.remove("fa-play");
+		}
+	}
+
+
+	if(song.played){
+		setInterval(()=>{
+			progress.value = song.currentTime;
+			updateCurrentTime();
+		},500);
+	}
+
+	progress.oninput = function() {
+		
+		song.currentTime = 	progress.value;
+		ctrlIcon.classList.add("fa-pause");
+		ctrlIcon.classList.remove("fa-play");
+		updateCurrentTime();
+	}
+function updateCurrentTime() {
+				let minutes = Math.floor(song.currentTime / 60);
+				let seconds = Math.floor(song.currentTime % 60);
+				time.textContent = padTime(minutes) + ":" + padTime(seconds);
+			}
+
+			function padTime(time) {
+				return time < 10 ? "0" + time : time;
+			}
+	
+
+</script>
+<div></div>
+<div class="lyric1">
+	<div class="lyric-container">
+			<p class="current">	
+			ငိုမနေပါရစေနဲ့.....<br>
+			ဒီဝဋ်ကြွေးတွေလဲ...<br>
+			ကျေပါစေတော့အချစ်ရာ<br>
+			မဆုံနိုင်မှာကိုစိုးတာ<br>
+			ကိုယ်တစ်ယောက်ထဲပါပဲ<br>
+			တကယ်ချစ်ဖူးသူရင်ထဲ...<br>
+			ကြာရှည်ဒီအလွမ်းထဲမှာ<br>
+			ရှင်သန်နေရန် မဖြစ်လို့ပါ<br>
+
+
+			ပြောလိုက်တဲ့စကားတွေတိုင်း<br>
+			နားထောင်မိရင် သံသယဝင်<br>
+			တစ်ယောက်ကိုတစ်ယောက်<br>
+			အကောင်း မမြင်<br>
+			နေလာကြတဲ့ ရက်ပေါင်းတွေ<br>
+			အနမ်းတွေက ခါးသက်သက်<br>
+			အလွမ်းတွေက တအားရက်စက်<br>
+			အချစ်တွေလဲ အပြစ်တွေပဲ<br>
+			စိတ်ဆင်းရဲစရာ ဖြစ်နေခဲ့<br>
+			ရှေ့ဆက်မဲ့ ရက်များမှာ<br>
+			နားလည်မှုက အခုတော့မရှိ<br>
+			အသက်မပါတဲ့ မင်းရဲ့<br>
+			အပြုံးတွေများနဲ့ အခုလှည့်ကြည့်<br>
+			ပျော်တယ်လို့ ထင်နေလဲ<br>
+			တကယ်တမ်းကျတော့ မပျော်နိုင်ခဲ့<br>
+			မခွဲနိုင်တာက ခုချိန်ထိပါ<br>
+			မင်း မသိတာခက်<br><br>
+
+
+			မဝေးရဲဘူး နီးနီးလေးနေပါ<br>
+			ပြန်တည်ဆောက်ကြမယ်လေ<br>
+			ကိုယ်တို့ရဲ့အိပ်မက်များ<br>
+			မဝေးရဲဘူး နီးနီးလေးနေပါ<br>
+			ပြန်တည်ဆောက်ကြမယ်လေ<br>
+			ကိုယ်တို့နှစ်ယောက်အိပ်မက်များ<br>
+			ငို မနေပါရစေနဲ့<br>
+			ဒီဝဋ်ကြွေးတွေလဲ<br>
+			ကျေပါစေတော့အချစ်ရာ<br>
+			မဆုံနိုင်မှာကိုစိုးတာ<br>
+			ကိုယ် တစ်ယောက်ထဲပါပဲ<br>
+			တကယ်ချစ်ဖူးသူ ရင်ထဲ<br>
+			ကြာရှည်ဒီအလွမ်းထဲမှာ<br>
+			ရှင်သန်နေရန် မဖြစ်တဲ့အခါ<br>
+			မဝေးရဲဘူး နီးနီးလေးနေပါ<br>
+			ပြန်တည်ဆောက်ကြမယ်လေ<br>
+			ကိုယ်တို့ရဲ့အိပ်မက်များ<br>
+			မဝေးရဲဘူး နီးနီးလေးနေပါနော်<br>
+			ပြန်တည်ဆောက်ကြမယ်လေ<br>
+			ကိုယ်တို့နှစ်ယောက်အိပ်မက်များ<br><br>
+
+
+			ငို (ပြောလိုက်တဲ့စကားတွေတိုင်း)<br>
+			မနေပါရစေနဲ့(နားထောင်မိရင် သံသယဝင်)<br>
+			ဒီ(တစ်ယောက်ကိုတစ်ယောက်အကောင်းမမြင်)<br>
+			ဝဋ်ကြွေးတွေလဲ(နေလာကြတဲ့ရက်ပေါင်းတွေ)<br>
+			ကျေပါစေတော့(အနမ်းတွေကခါးသက်သက်)<br>
+			အချစ်ရာ(အလွမ်းတွေက တအားရက်စက်)<br>
+			မဆုံနိုင်မှာကို(အချစ်တွေလဲ အပြစ်တွေပဲ)<br>
+			စိုးတာ(စိတ်ဆင်းရဲစရာ ဖြစ်နေခဲ့)<br>
+			ကိုယ်(ရှေ့ဆက်မဲ့ ရက်များမှာ)<br>
+			တစ်ယောက်ထဲပါပဲ(နားလည်မှုက ခုတော့မရှိ)<br>
+			တကယ်(အသက်မပါတဲ့ မင်းရဲ့)<br>
+			ချစ်ဖူးသူ(အပြုံးတွေများနဲ့)<br>
+			ရင်ထဲ(အခုလှည့်ကြည့်)<br>
+			ကြာရှည်(ပျော်တယ်လို့ထင်နေလဲ)<br>
+			ဒီအလွမ်း(တကယ်တမ်းကျတော့)<br>
+			များစွာ(မပျော်နိုင်ခဲ့)<br>
+			ရှင်သန်နေရန်(မခွဲနိုင်တာကခုချိန်ထိပါ)<br>
+			မဖြစ်တဲ့အခါ(မင်း မသိတာခက်)<br><br>
+
+
+			မဝေးရဲဘူး နီးနီးလေးနေပါ<br>
+			ပြန်တည်ဆောက်ကြမယ်လေ<br>
+			တို့ရဲ့အိပ်မက်များ<br>
+			မဝေးရဲဘူး နီးနီးလေးနေပါ<br>
+			ပြန်တည်ဆောက်ကြမယ်လေ<br>
+			ကိုယ်တို့နှစ်ယောက်အိပ်မက်များ<br><br>
+
+		</p>
+</div>
+</div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	 <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+	  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+	<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+	<link rel="stylesheet" type="text/css" href="Home.css">
+	<link rel="stylesheet" type="text/css" href="ContantUs.css">
+	<title>Contant Us</title>
+</head>
+<body >
+	
+	<div class="container4">
+			<div class="header10">
+		<nav>
+                <div class="logo10" ><abbr title="Myanmar Melody Mingle"><img class= "logoImg10" src="Logo.jpg"></abbr></div>
+                <div class="search-bar">
+                    <input type="text" placeholder="Search...">
+                    <button type="submit"><i class="fas fa-search"></i></button>
+                <label for="btn" class="icon">
+                  <i class="fa-solid fa-bars"></i>
+            </label>
+        <ul>
+          <li><a href="Home.html">Home</a></li>
+            <li>
+               <label for="btn-1" class="show">Song +</label> 
+                <a href="Song.html">Song</a>
+
+                <ul >
+                   
+                    <li><a href="Classic.html">Classic</a></li>
+                    <li><a href="Pop.html">Pop</a></li>
+                    <li><a href="Jazz.html">Jazz</a></li>
+                    <li><a href="Rock.html">Rock</a></li>
+                </ul>
+            </li>
+            
+            <li><a href="Artists.html">Artists</a></li>
+
+            <li><a href="ContantUs.html">Contact Us</a></li>
+             <li><a href="AboutUs.html">About Us</a></li>
+             <li><a href="index.html"><i class="fa-regular fa-user"></i></a></li>
+        </ul>
+        </div>
+    </nav>
+	     <script>
+    $(document).ready(function () {
+    $('.icon').click(function () {
+        $('nav ul').toggleClass('show');
+    });
+
+    $('label.show').click(function () {
+        $(this).siblings('ul').toggleClass('show');
+    });
+});
+
+$('.fade-in').each(function () {
+    if (isElementInViewport(this)) {
+        $(this).addClass('active');
+    }
+});
+
+</script>
+
+    </div>
+							
+							 <section>
+							<div class="upper-container">
+						        <h1>Contant us</h1>
+						        <p>
+						          We're here to help and answer any question you might have. We look
+						          forward to hearing from you.
+						        </p>
+						     </div>
+						  
+							      <!--Contact Container-->
+							      <div class="contact-container mb-4">
+							        <!--Form-->
+							        <div class="form-container">
+							         <form action="" class="contact-form" id="form" >
+													  <div class="form-grp">
+													    <input   type="text" name= "name" id="name" placeholder="Your Name" >
+													    <span id="err-name" class="error-text"></span>
+													  </div>
+													  <div class="form-grp">
+													    <input  type="text" name="mailid" name="" id="email" placeholder="Your Email" >
+													    <span id="err-email" class="error-text"></span>
+													  </div>
+													  <div class="form-grp">
+													    <input type="tel" name="mobile"  id="number" placeholder="Phone Number" >
+													    <span id="err-num" class="error-text"></span>
+													  </div>
+													
+													  <div class="form-grp" >
+													    <textarea name="" id="message" cols="30" rows="10" placeholder="Your Message" ></textarea>
+													    <span id="err-msg" class="error-text"></span>
+													  </div>
+													  <button type="submit" value="send" class="button" id="button">
+													    Submit
+													  </button>
+												</form>
+
+							 			 </div>
+						        <!--Map-->
+						        <div class="map">
+						          <iframe
+						            src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d1778.8247859536086!2d75.8036517!3d26.9146144!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x396db6a9fbd5534f%3A0x776803fe8fa7422c!2sKJ%20City%20Tower!5e0!3m2!1sen!2sin!4v1697479705075!5m2!1sen!2sin"
+						            style="border: 0"
+						            allowfullscreen=""
+						            loading="lazy"
+						            referrerpolicy="no-referrer-when-downgrade"
+						          ></iframe>
+						        </div>
+						 </div>
+					
+   				 </section>
+   			 
+  <!--middle area ends here-->
+
+   <!--footer start here-->
+				    
+				    <footer class="py-3 bg-dark">
+				      <ul class="nav justify-content-center border-bottom pb-3 mb-3">
+			            <li class="nav-item">
+			                <a href="Home.html" class="nav-link px-2 text-white">Home</a>
+			            </li>
+			            <li class="nav-item">
+			                <a href="Song.html" class="nav-link px-2 text-white">Song</a>
+			            </li>
+			            <li class="nav-item">
+			                <a href="Artists.html" class="nav-link px-2 text-white">Artists</a>
+			            </li>
+			            <li class="nav-item">
+			                <a href="#" class="nav-link px-2 text-white">Contact Us</a>
+			            </li>
+			            <li class="nav-item">
+			                <a href="AboutUs.html" class="nav-link px-2 text-white">About Us</a>
+			            </li>
+			        </ul>
+				      <p class="text-center text-white">© 2024 Company, Inc</p>
+				    </footer>
+    <!--footer end here-->
+
+</div>
+
+</body>
+</html>
